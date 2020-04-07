@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Chart from '../components/Chart'
+import ChartInput from '../components/ChartInput'
+
 
 import { connect } from 'react-redux'
 
@@ -16,6 +18,8 @@ class New extends Component {
             <div>
                 <h1>New Container Placeholder</h1>
                 <p>displays chart dynamically by url and new notice/wonder form aligned to chart.id</p>
+                <Chart url={"https://i.imgur.com/0CcaR6K.png"}/>
+                <ChartInput />
             </div>
         );
     }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Chart from '../components/Chart'
+import Notices from '../components/Notices'
+import Wonders from '../components/Wonders'
+
 
 import { connect } from 'react-redux'
 
@@ -16,6 +19,9 @@ class Show extends Component {
             <div>
                 <h1>Show Container Placeholder</h1>
                 <p>displays Notices Component, Chart Component, and Wonders Component</p>
+                <Chart url={"https://i.imgur.com/0CcaR6K.png"}/>
+                <Notices />
+                <Wonders />
             </div>
         );
     }
