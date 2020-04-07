@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+// import '../App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import NavBar from '../components/NavBar';
+import Home from '../containers/Home'
+
 
 class App extends Component {
 
@@ -16,12 +20,19 @@ class App extends Component {
     .then(json => console.log(json))
   }
 
+
+
   render() {
     return (
-      <div className="App">
-      App
-
+      <Router>
+      <div>
+        <NavBar />
+        {/* <Route exact path="/" render={() => <div>Home Container</div>} /> */}
+        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/new" component={New} />
+        <Route exact path="/show" component={Show} /> */}
       </div>
+    </Router>
     );
   }
 }
