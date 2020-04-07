@@ -5,12 +5,12 @@ class Chart extends Component {
     
         return (
             <div>
-                <h1>Chart Component Placeholder</h1>
-        
+                <h3>Chart Component Placeholder</h3>
+                <p>renders individual chart components and view button (link to new container)</p>
+
                 <img src={this.props.url} alt="placeholder temp chart"/>
                 <button>View Chart</button>
         
-
             </div>
         );
     }

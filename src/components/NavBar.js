@@ -5,6 +5,7 @@ const NavBar = () => {
   return (
     <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
         <h1>NavBar Component Placeholder</h1>
+        <p>replace nav links with links/dropdowns that fetch and display dashboard chart elements</p>
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/"
@@ -15,16 +16,14 @@ const NavBar = () => {
       {/* need to edit route names and links to be dynamic */}
       <NavLink 
         style={{ marginRight: '10px' }} 
-        to="/charts/1/new"
+        to="/new"
       >
         New
       </NavLink>
-      
       {/* need to edit route names and links to be dynamic */}
-
       <NavLink 
         style={{ marginRight: '10px' }} 
-        to="/charts/1/show"
+        to="/show"
       >
         Show
       </NavLink>

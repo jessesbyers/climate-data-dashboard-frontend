@@ -8,13 +8,13 @@ import { createStore } from 'redux';
 import manageStudentInput from './reducers/manageStudentInput'
 
 
-// const store = createStore(manageStudentInput)
+const store = createStore(manageStudentInput)
 
 
 ReactDOM.render(
-  // <Provider store={store}>
-    <App />,
-    // </Provider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
