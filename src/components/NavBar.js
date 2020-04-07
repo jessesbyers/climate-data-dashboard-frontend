@@ -11,12 +11,17 @@ const NavBar = () => {
       >
         Home
       </NavLink>
+
+      {/* need to edit route names and links to be dynamic */}
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/charts/1/new"
       >
         New
       </NavLink>
+      
+      {/* need to edit route names and links to be dynamic */}
+
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/charts/1/show"

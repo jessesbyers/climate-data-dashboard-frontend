@@ -22,8 +22,6 @@ class App extends Component {
     .then(json => console.log(json))
   }
 
-
-
   render() {
     return (
       <Router>

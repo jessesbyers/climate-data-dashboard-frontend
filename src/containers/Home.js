@@ -12,7 +12,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Home Container Placeholder</h1>
-                {this.state.urls.map(url => <Chart url={url}/>)}
+                {this.state.urls.map((url, index) => <Chart url={url} key={index}/>)}
             </div>
         );
     }
