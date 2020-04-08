@@ -15,14 +15,9 @@ class App extends Component {
       <Router>
       <div>
         <NavBar />
-        {/* need to revise paths to be dynamic by chart id with nested routes */}
         <Route exact path="/" component={Home} />
-        {/* <Route exact path="/new" component={New} /> */}
-
         <Route path={`/charts/:id/interact`} component={New} />
-        {/* <Route path="/show" component={Show} /> */}
         <Route path={`/charts/:id/reflections`} component={Show} />
-
       </div>
     </Router>
     );

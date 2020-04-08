@@ -33,8 +33,6 @@ class Home extends Component {
         console.log(this.props)
         return (
             <div>  
-                <h1>Home Container Placeholder</h1>
-                <p>loops through urls from state and renders chart component for each url</p>
                 <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
 
                 {this.props.charts.map((chart, index) => {

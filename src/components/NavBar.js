@@ -4,37 +4,14 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
-        <h1>NavBar Component Placeholder</h1>
-        <p>replace nav links with links/dropdowns that fetch and display dashboard chart elements</p>
+        <h1>Climate Data Dashboard</h1>
 
-        {/* <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/"
-      >
-        Fetch Chart 1
-      </NavLink>
 
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/"
       >
-        Fetch Chart 2
-      </NavLink>
-
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/"
-      >
-        Fetch Chart 3
-      </NavLink> */}
-
-
-        
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/"
-      >
-        Home
+        Return To Data Dashboard
       </NavLink>
 
       {/* need to edit route names and links to be dynamic */}
