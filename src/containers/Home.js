@@ -10,11 +10,6 @@ import { connect } from 'react-redux'
 
 class Home extends Component {
 
-    // get rid of state once store data is ready
-    // state = {
-    //     urls: ["https://i.imgur.com/0CcaR6K.png", "https://i.imgur.com/hvyjE6g.png", "https://i.imgur.com/nBfhBVX.png"]
-    // }
-
     handleDropdownChange = (event) => {
         this.setState({chart_url: event.target.value});
     }

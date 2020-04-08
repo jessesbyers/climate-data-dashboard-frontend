@@ -7,7 +7,8 @@ class Notice extends Component {
             <div>
                 <h3>Notice Component</h3>
                 <p>renders notice content, delete, and upvote button</p>
-                <p>TEXT</p>
+                <p>{this.props.content}</p>
+                <p>Votes: {this.props.votes}</p>
 
 
                 <div className="float-center">

@@ -13,16 +13,18 @@ class Show extends Component {
     // }
 
     render() {
-        const chart_url = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
+        console.log(this.props)
+        const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
+        console.log(chart)
 
         return (
             <div>
                 <h1>Show Container Placeholder</h1>
                 <p>displays Notices Component, Chart Component, and Wonders Component</p>
-                <Chart url={chart_url.attributes.screenshot_url}/>
+                <Chart url={chart.attributes.screenshot_url}/>
 
-                <Notices />
-                <Wonders />
+                <Notices chart={chart}/>
+                <Wonders chart={chart}/>
             </div>
         );
     }
