@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Chart extends Component {
     render() {
     
@@ -9,7 +10,6 @@ class Chart extends Component {
                 <p>renders individual chart components and view button (link to new container)</p>
 
                 <img src={this.props.url} alt="placeholder temp chart"/>
-                <button>View Chart</button>
         
             </div>
         );

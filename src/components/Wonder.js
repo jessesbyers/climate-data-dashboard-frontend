@@ -9,7 +9,7 @@ class Wonder extends Component {
                 <p>renders wonder content, delete, and upvote button</p>
                 <p>text</p>
 
-                <div className="float-right">
+                <div className="float-center">
                     <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
                     <button
                         type="button"

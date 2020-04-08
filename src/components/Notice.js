@@ -10,7 +10,7 @@ class Notice extends Component {
                 <p>TEXT</p>
 
 
-                <div className="float-right">
+                <div className="float-center">
                     <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
                     <button
                         type="button"
@@ -38,7 +38,7 @@ class Notice extends Component {
                     </div>
                     <div>Votes: {}</div>
                 </div>
-                
+
         
             </div>
         );
