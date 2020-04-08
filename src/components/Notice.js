@@ -5,9 +5,7 @@ class Notice extends Component {
     
         return (
             <div>
-                <h3>Notice Component</h3>
-                <p>renders notice content, delete, and upvote button</p>
-                <p>{this.props.content}</p>
+                <h6>{this.props.content}</h6>
                 <p>Votes: {this.props.votes}</p>
 
 
@@ -37,10 +35,7 @@ class Notice extends Component {
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div>Votes: {}</div>
                 </div>
-
-        
             </div>
         );
     }

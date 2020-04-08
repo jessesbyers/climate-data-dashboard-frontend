@@ -5,9 +5,8 @@ class Wonder extends Component {
     
         return (
             <div>
-                <h3>Wonder Component</h3>
-                <p>renders wonder content, delete, and upvote button</p>
-                <p>text</p>
+                <h6>{this.props.content}</h6>
+                <p>Votes: {this.props.votes}</p>
 
                 <div className="float-center">
                     <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -35,7 +34,6 @@ class Wonder extends Component {
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div>Votes: {}</div>
                 </div>
 
             </div>

@@ -7,10 +7,8 @@ class Wonders extends Component {
     
         return (
             <div>
-                <h3>Wonders Component Placeholder</h3>
-                <p>loops through wonders and renders individual Wonder Component</p>
-                <Wonder />
-        
+                <h1>I Wonder...</h1>
+                {this.props.chart.attributes.wonders.map(chart=> <Wonder content={chart.content} votes={chart.votes}/>)}             
             </div>
         );
     }
