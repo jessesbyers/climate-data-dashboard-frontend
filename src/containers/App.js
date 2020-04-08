@@ -10,13 +10,16 @@ import Show from '../containers/Show'
 class App extends Component {
 
   render() {
+    
     return (
       <Router>
       <div>
         <NavBar />
         {/* need to revise paths to be dynamic by chart id with nested routes */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/new" component={New} />
+        {/* <Route exact path="/new" component={New} /> */}
+
+        <Route path={`/charts/:id/interact`} component={New} />
         <Route exact path="/show" component={Show} />
       </div>
     </Router>

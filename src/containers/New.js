@@ -12,13 +12,15 @@ class New extends Component {
     }
 
     render() {
-        console.log(this)
+        console.log(this.props)
 
         return (
             <div>
                 <h1>New Container Placeholder</h1>
                 <p>displays chart dynamically by url and new notice/wonder form aligned to chart.id</p>
+                {/* <Chart url={"https://i.imgur.com/0CcaR6K.png"}/> */}
                 <Chart url={"https://i.imgur.com/0CcaR6K.png"}/>
+
                 <ChartInput />
             </div>
         );

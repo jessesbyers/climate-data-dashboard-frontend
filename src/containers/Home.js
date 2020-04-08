@@ -14,22 +14,22 @@ class Home extends Component {
     // }
 
     handleDropdownChange = (event) => {
-        console.log("handle dropdown change function")
-        console.log(event.target.value)
         this.setState({chart_url: event.target.value});
     }
 
     handleDropdownSubmit = (event) => {
-        console.log("handle dropdown submit function")
-        console.log(this.state.chart_url)
         event.preventDefault()
         if (this.state.chart_url !== "") {
-            console.log(this.state.chart_url)
-            console.log(this.props.fetchChartData)
             this.props.fetchChartData(this.state.chart_url)
         } else {
             return "Please choose a chart from the dropdown menu"
         }
+    }
+
+    handleButtonClick = (url) => {
+        console.log("button clicked")
+        console.log(url)
+        console.log(this.props)
     }
 
     render() {
@@ -44,7 +44,7 @@ class Home extends Component {
                     return (
                         <div key ={index}>
                             <Chart url={chart.attributes.screenshot_url}/>
-                            <InteractButton url={chart.attributes.screenshot_url} />
+                            <InteractButton url={chart.attributes.screenshot_url} handleButtonClick={this.handleButtonClick} chart_id={chart.id}/>
                         </div>
                     )
                 })}

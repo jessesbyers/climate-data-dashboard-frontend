@@ -38,12 +38,12 @@ const NavBar = () => {
       </NavLink>
 
       {/* need to edit route names and links to be dynamic */}
-      <NavLink 
+      {/* <NavLink 
         style={{ marginRight: '10px' }} 
-        to="/new"
+        to="/charts/:id/new"
       >
         New
-      </NavLink>
+      </NavLink> */}
       {/* need to edit route names and links to be dynamic */}
       <NavLink 
         style={{ marginRight: '10px' }} 
