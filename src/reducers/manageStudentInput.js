@@ -14,6 +14,12 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 charts: state.charts.concat(action.charts.data),
                 requesting: false
             }
+        case 'DELETE_CHART':
+            console.log("inside delete chart on reducer")
+            return {
+                charts: state.charts.filter(chart => chart.id !== action.id), 
+                requesting: false
+            }    
 
         // case 'ADD_NOTICE':
 

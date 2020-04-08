@@ -3,6 +3,8 @@ import Chart from '../components/Chart'
 import InteractButton from '../components/InteractButton'
 import DropdownInput from '../components/DropdownInput'
 import { fetchChartData } from '../actions/fetchChartData'
+import { deleteChart } from '../actions/deleteChart'
+
 
 import { connect } from 'react-redux'
 
@@ -26,10 +28,10 @@ class Home extends Component {
         }
     }
 
-    handleButtonClick = (url) => {
-        console.log("button clicked")
-        console.log(url)
-        console.log(this.props)
+    handleDelete = (id) => {
+        console.log("inside handle delete")
+        console.log(id)
+        this.props.deleteChart(id)
     }
 
     render() {
@@ -44,7 +46,7 @@ class Home extends Component {
                     return (
                         <div key ={index}>
                             <Chart url={chart.attributes.screenshot_url}/>
-                            <InteractButton url={chart.attributes.screenshot_url} handleButtonClick={this.handleButtonClick} chart_id={chart.id}/>
+                            <InteractButton url={chart.attributes.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
                         </div>
                     )
                 })}
@@ -61,4 +63,4 @@ const mapStateToProps = state => {
     // }
 }
 
-export default connect (mapStateToProps, {fetchChartData})(Home)
+export default connect (mapStateToProps, {fetchChartData, deleteChart})(Home)

@@ -20,6 +20,14 @@ class InteractButton extends Component {
                 >
                     Interact
                 </NavLink>
+                <button key={this.props.chart_id}
+                        type="button"
+                        className="btn btn-danger"
+                        onClick={id => this.props.handleDelete(this.props.chart_id)}
+
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
             </div>
         );
     }
