@@ -12,15 +12,12 @@ class New extends Component {
     }
 
     render() {
-        console.log(this.props)
-
+        const chart_url = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
         return (
             <div>
                 <h1>New Container Placeholder</h1>
                 <p>displays chart dynamically by url and new notice/wonder form aligned to chart.id</p>
-                {/* <Chart url={"https://i.imgur.com/0CcaR6K.png"}/> */}
-                <Chart url={"https://i.imgur.com/0CcaR6K.png"}/>
-
+                <Chart url={chart_url.attributes.screenshot_url}/>
                 <ChartInput />
             </div>
         );

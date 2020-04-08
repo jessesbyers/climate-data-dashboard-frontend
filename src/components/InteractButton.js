@@ -16,6 +16,7 @@ class InteractButton extends Component {
                 <NavLink 
                     style={{ marginRight: '10px' }} 
                     to={`/charts/${this.props.chart_id}/interact`}
+                    url={this.props.url}
                 >
                     Interact
                 </NavLink>
