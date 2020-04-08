@@ -21,10 +21,15 @@ class Home extends Component {
 
     handleDropdownSubmit = (event) => {
         console.log("handle dropdown submit function")
-        event.preventDefault()
         console.log(this.state.chart_url)
-        console.log(this.props.fetchChartData)
-        this.props.fetchChartData(this.state.chart_url)
+        event.preventDefault()
+        if (this.state.chart_url !== "") {
+            console.log(this.state.chart_url)
+            console.log(this.props.fetchChartData)
+            this.props.fetchChartData(this.state.chart_url)
+        } else {
+            return "Please choose a chart from the dropdown menu"
+        }
     }
 
     render() {
