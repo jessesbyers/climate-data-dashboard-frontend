@@ -1,5 +1,5 @@
 // probably need to revise initial state
-export default function manageStudenInput(state = {charts: [], notices: [], wonders: [], requesting: false}, action) {
+export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
     switch (action.type) {
         // placeholder: need to define
         case 'START_ADDING_CHARTDATA_REQUEST':
@@ -10,10 +10,9 @@ export default function manageStudenInput(state = {charts: [], notices: [], wond
             }
 
         case 'ADD_CHARTDATA':
-            console.log(action)
+            console.log(action.charts.data)
             return {
-                ...state,
-                charts: [action.charts.data],
+                charts: state.charts.concat(action.charts.data),
                 requesting: false
             }
 
