@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 class Chart extends Component {
     render() {
+        console.log(this.props.url)
     
         return (
             <div>

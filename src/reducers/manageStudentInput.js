@@ -13,7 +13,7 @@ export default function manageStudenInput(state = {charts: [], notices: [], wond
             console.log(action)
             return {
                 ...state,
-                charts: action.charts.data,
+                charts: [action.charts.data],
                 requesting: false
             }
 
