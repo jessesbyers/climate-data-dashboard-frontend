@@ -20,6 +20,13 @@ class InteractButton extends Component {
                 >
                     Interact
                 </NavLink>
+                <NavLink 
+                    style={{ marginRight: '10px' }} 
+                    to={`/charts/${this.props.chart_id}/reflections`}
+                    url={this.props.url}
+                >
+                    Reflections
+                </NavLink>
                 <button key={this.props.chart_id}
                         type="button"
                         className="btn btn-danger"
@@ -27,7 +34,7 @@ class InteractButton extends Component {
 
                     >
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                </button>
             </div>
         );
     }

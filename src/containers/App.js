@@ -10,7 +10,7 @@ import Show from '../containers/Show'
 class App extends Component {
 
   render() {
-    
+
     return (
       <Router>
       <div>
@@ -20,7 +20,9 @@ class App extends Component {
         {/* <Route exact path="/new" component={New} /> */}
 
         <Route path={`/charts/:id/interact`} component={New} />
-        <Route exact path="/show" component={Show} />
+        {/* <Route path="/show" component={Show} /> */}
+        <Route path={`/charts/:id/reflections`} component={Show} />
+
       </div>
     </Router>
     );

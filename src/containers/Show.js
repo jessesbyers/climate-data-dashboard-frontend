@@ -8,18 +8,19 @@ import { connect } from 'react-redux'
 
 class Show extends Component {
 
-    state = {
+    // state = {
         
-    }
+    // }
 
     render() {
-        console.log(this)
+        const chart_url = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
 
         return (
             <div>
                 <h1>Show Container Placeholder</h1>
                 <p>displays Notices Component, Chart Component, and Wonders Component</p>
-                <Chart url={"https://i.imgur.com/0CcaR6K.png"}/>
+                <Chart url={chart_url.attributes.screenshot_url}/>
+
                 <Notices />
                 <Wonders />
             </div>
