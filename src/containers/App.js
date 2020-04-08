@@ -5,6 +5,10 @@ import NavBar from '../components/NavBar';
 import Home from '../containers/Home'
 import New from '../containers/New'
 import Show from '../containers/Show'
+import { fetchClimateData } from '../actions/fetchClimateData'
+import { fetchChartData } from '../actions/fetchChartData'
+
+
 
 
 
