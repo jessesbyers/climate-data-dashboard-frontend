@@ -1,7 +1,6 @@
-// probably need to revise initial state
+// may need to revise initial state
 export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
     switch (action.type) {
-        // placeholder: need to define
         case 'START_ADDING_CHARTDATA_REQUEST':
             return {
                 ...state,
@@ -30,7 +29,5 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
         default:
             return state
-
     }
-
 }

@@ -7,9 +7,7 @@ class DropdownInput extends Component {
     state = {
         chart_url: ""
     }
-    render() {
-        console.log(this)
-    
+    render() {    
         return (
             <div>
                 <h3>DropdownInput Component </h3>
