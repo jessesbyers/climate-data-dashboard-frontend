@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addReflections } from '../actions/addReflections';
+import { addNotice } from '../actions/addReflections';
+import { addWonder } from '../actions/addReflections';
+
 
 
 class ChartInput extends Component {
 
     state = {
         notice: {
-            content: "", 
-            votes: 1, 
-            chart_id: this.props.chart_id
+            content: ""
         },
         wonder: {
-            content: "", 
-            votes: 1, 
-            chart_id: this.props.chart_id
+            content: ""
         }
     }
 
@@ -27,9 +25,15 @@ class ChartInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log("inside handle submit")
-        console.log(event.target)
-        console.log(this.state)
+
+        this.props.addNotice(this.state.notice)
+
+        // this.props.addWonder(this.state.wonder)
+
+        this.setState({
+            notice: {content: ""},
+            wonder: {content: ""}
+        })
     }
     render() {
         console.log(this)
@@ -50,16 +54,9 @@ class ChartInput extends Component {
 
 // need to revise with content
 const mapStateToProps = (state) => {
-    // return { notice: state.content, author: state.author }
+    // return { state.notice, state.wonder }
     return state
   }
   
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      addReflections: (notice, wonder) => {
-        dispatch(addReflections(notice, wonder))
-      }
-    }
-  }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ChartInput);
+  export default connect(mapStateToProps, {addNotice, addWonder})(ChartInput);

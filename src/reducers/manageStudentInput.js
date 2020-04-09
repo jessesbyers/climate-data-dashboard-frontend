@@ -9,24 +9,58 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'ADD_CHARTDATA':
-            console.log(action.charts.data)
             return {
                 charts: state.charts.concat(action.charts.data),
                 requesting: false
             }
         case 'DELETE_CHART':
-            console.log("inside delete chart on reducer")
             return {
                 charts: state.charts.filter(chart => chart.id !== action.id), 
                 requesting: false
             }    
 
-        // case 'ADD_NOTICE':
+        case 'START_ADDING_ADDNOTICE_REQUEST':
+            console.log("inside start_adding_notice reducer")    
+            console.log(action)
 
-        //     return state
+            return {
+                ...state,
+                charts: [...state.charts],
+                requesting: true
+            }
 
-        // case 'ADD_WONDER':
-        //     return state
+        case 'ADD_NOTICE':
+            console.log("inside add notice reducer")    
+            console.log(state)
+            console.log(action)
+
+
+            let notice = {
+                content: action.notice.data.attributes.content,
+                votes: action.notice.data.attributes.votes,
+                chart_id: action.notice.data.attributes.chart_id
+            }
+            // return {
+            //     charts: state.charts.notices.concat(notice), 
+            //     requesting: false
+            // }
+            return state
+
+            // return {
+            //     charts: state.charts.concat(action.charts.data),
+            //     requesting: false
+            // }
+
+        case 'START_ADDING_ADDWONDER_REQUEST':
+            console.log("inside start_adding_wonder reducer")    
+            console.log(action)
+
+            return state
+
+        case 'ADD_WONDER':
+            console.log("inside add wonder reducer")    
+            console.log(action)
+            return state
 
 
         // case 'UPVOTE':
