@@ -5,7 +5,6 @@ class Chart extends Component {
     render() {    
         return (
             <div>
-
                 <img src={this.props.url} alt="placeholder temp chart"/>
             </div>
         );

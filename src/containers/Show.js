@@ -3,14 +3,9 @@ import Chart from '../components/Chart'
 import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
 
-
 import { connect } from 'react-redux'
 
 class Show extends Component {
-
-    // state = {
-        
-    // }
 
     render() {
         console.log(this.props)
@@ -32,11 +27,9 @@ class Show extends Component {
 
 // need to revise to only pass down what is needed
 const mapStateToProps = state => {
-    return state
-    // return {
-    //   items: state.items
-    // }
+    return {
+      charts: state.charts
+    }
   }
 
-// export default Show;
 export default connect (mapStateToProps)(Show)

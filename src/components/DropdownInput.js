@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-
 class DropdownInput extends Component {
 
     state = {
@@ -24,15 +23,12 @@ class DropdownInput extends Component {
             </div>
         );
     }
-
-
 };
+
 const mapStateToProps = (state) => {
     return (
         state
     )
 }
-
-
   
   export default connect (mapStateToProps)(DropdownInput);
