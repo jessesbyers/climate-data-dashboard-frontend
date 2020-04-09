@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Chart from '../components/Chart'
 import ChartInput from '../components/ChartInput'
+import { NavLink } from 'react-router-dom';
+
 
 import { connect } from 'react-redux'
 
@@ -14,6 +16,14 @@ class New extends Component {
             <div>
                 <Chart url={chart.screenshot_url}/>
                 <ChartInput chart_id={chart.id}/>
+
+                <NavLink 
+                    style={{ marginRight: '10px' }} 
+                    to={`/charts/${chart.id}/reflections`}
+                    url={this.props.url}
+                >
+                    Reflections
+                </NavLink>
             </div>
         );
     }

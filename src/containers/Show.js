@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Chart from '../components/Chart'
 import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
+import { NavLink } from 'react-router-dom';
+
 
 import { connect } from 'react-redux'
 
@@ -17,6 +19,15 @@ class Show extends Component {
                 <h1>Show Container Placeholder</h1>
                 <p>displays Notices Component, Chart Component, and Wonders Component</p>
                 <Chart url={chart.screenshot_url}/>
+
+                <NavLink 
+                    style={{ marginRight: '10px' }} 
+                    to={`/charts/${chart.id}/interact`}
+                    url={this.props.url}
+                >
+                    Interact
+                </NavLink>
+
 
                 <Notices chart={chart}/>
                 <Wonders chart={chart}/>

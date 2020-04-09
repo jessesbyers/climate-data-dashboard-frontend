@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { addNotice } from '../actions/addReflections';
 import { addWonder } from '../actions/addReflections';
 
-
-
 class ChartInput extends Component {
 
     state = {
