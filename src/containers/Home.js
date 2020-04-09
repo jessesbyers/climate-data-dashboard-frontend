@@ -50,10 +50,11 @@ class Home extends Component {
 
 // need to revise to only pass down what is needed
 const mapStateToProps = state => {
-    return state
-    // return {
-    //   items: state.items
-    // }
+    console.log(state)
+    // return state
+    return {
+      charts: state.charts
+    }
 }
 
 export default connect (mapStateToProps, {fetchChartData, deleteChart})(Home)

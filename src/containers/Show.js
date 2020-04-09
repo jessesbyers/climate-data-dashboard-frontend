@@ -14,25 +14,37 @@ class Show extends Component {
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
         console.log(chart)
 
-        return (
-            <div>
-                <h1>Show Container Placeholder</h1>
-                <p>displays Notices Component, Chart Component, and Wonders Component</p>
-                <Chart url={chart.screenshot_url}/>
+        if (chart) {
 
-                <NavLink 
-                    style={{ marginRight: '10px' }} 
-                    to={`/charts/${chart.id}/interact`}
-                    url={this.props.url}
-                >
-                    Interact
-                </NavLink>
+            return (
+                <div>
+                    <Chart url={chart.screenshot_url}/>
+
+                    <NavLink 
+                        to={`/charts/${chart.id}/interact`}
+                    >
+                        Interact
+                    </NavLink>
 
 
-                <Notices chart={chart}/>
-                <Wonders chart={chart}/>
-            </div>
-        );
+                    <Notices chart={chart}/>
+                    <Wonders chart={chart}/>
+                
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <NavLink 
+                        style={{ marginRight: '10px' }} 
+                        to="/"
+                    >
+                        <h1>Set Up a Data Dashboard to Get Started</h1>
+                        <h3>Click Here</h3>
+                    </NavLink>
+                </div>
+            )
+        }
     }
 };
 

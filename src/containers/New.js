@@ -12,20 +12,35 @@ class New extends Component {
         console.log("rendering New component")
         console.log(this.props)
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
-        return (
-            <div>
-                <Chart url={chart.screenshot_url}/>
-                <ChartInput chart_id={chart.id}/>
+    
+        if (chart) {
+            return (
+                    <div>
+                        <Chart url={chart.screenshot_url}/>
+                        <ChartInput chart_id={chart.id}/>
 
-                <NavLink 
-                    style={{ marginRight: '10px' }} 
-                    to={`/charts/${chart.id}/reflections`}
-                    url={this.props.url}
-                >
-                    Reflections
-                </NavLink>
-            </div>
-        );
+                        <NavLink 
+                            to={`/charts/${chart.id}/reflections`}
+                        >
+                            Reflections
+                        </NavLink>
+                    </div>
+            )
+
+            } else {
+                return (
+                    <div>
+                        <NavLink 
+                            style={{ marginRight: '10px' }} 
+                            to="/"
+                        >
+                            <h1>Set Up a Data Dashboard to Get Started</h1>
+                            <h3>Click Here</h3>
+                        </NavLink>
+                    </div>
+                )
+}
+        // );
     }
 };
 

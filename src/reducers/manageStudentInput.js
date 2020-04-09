@@ -1,5 +1,3 @@
-import Chart from "../components/Chart"
-
 // may need to revise initial state
 export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
     switch (action.type) {
