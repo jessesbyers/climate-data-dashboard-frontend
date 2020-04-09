@@ -28,49 +28,19 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: true
             }
 
-        case 'ADD_NOTICE':
-            console.log("inside add notice reducer")    
-            console.log(state.charts)
-            console.log(action)
-                    
+        case 'ADD_NOTICE':                
             let index = state.charts.findIndex(chart => chart.id == action.mutatedNotice.chart_id)
-
-            console.log(index)
 
             return {
                 ...state,
                 charts: [...state.charts.slice(0, index),
-                    // need to figure out middle line
                     {
                     ...state.charts[index], notices: [...state.charts[index].notices, action.mutatedNotice]
-                    // notices.concat(action.mutatedNotice), 
                     },
-
                     ...state.charts.slice(index + 1)
                 ],
                 requesting: false
             }
-
-                   // state = {
-                    //     charts: [ 
-                    //         {
-                    //             key: value, 
-                    //             key: value, 
-                    //             notices: [{}, {}], 
-                    //             wonders: [{}, {}]
-                    //         }, 
-
-                    //         {
-                    //             key: value, 
-                    //             key: value, 
-                    //             notices: [{}, {}], 
-                    //             wonders: [{}, {}]
-                    //         },
-                    // }
-
-
-                    // ...state.charts[index].notices, action.mutatedNotice,
-                    // .concat(action.mutatedNotice),
 
         case 'START_ADDING_ADDWONDER_REQUEST':
             console.log("inside start_adding_wonder reducer")    

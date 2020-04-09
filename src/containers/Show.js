@@ -16,7 +16,7 @@ class Show extends Component {
             <div>
                 <h1>Show Container Placeholder</h1>
                 <p>displays Notices Component, Chart Component, and Wonders Component</p>
-                <Chart url={chart.attributes.screenshot_url}/>
+                <Chart url={chart.screenshot_url}/>
 
                 <Notices chart={chart}/>
                 <Wonders chart={chart}/>
