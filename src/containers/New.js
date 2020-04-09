@@ -7,10 +7,11 @@ import { connect } from 'react-redux'
 class New extends Component {
 
     render() {
+        console.log("rendering New component")
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
         return (
             <div>
-                <Chart url={chart.attributes.screenshot_url}/>
+                <Chart url={chart.screenshot_url}/>
                 <ChartInput chart_id={chart.id}/>
             </div>
         );

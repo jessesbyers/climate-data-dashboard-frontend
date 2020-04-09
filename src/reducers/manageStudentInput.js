@@ -13,8 +13,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             console.log(action.chart)
             return {
                 charts: state.charts.concat(action.chart),
-                // change to this syntax
-                // ...state, charts: action.charts.data,
                 requesting: false
             }
         case 'DELETE_CHART':
@@ -25,38 +23,26 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
         case 'START_ADDING_ADDNOTICE_REQUEST':
             console.log("inside start_adding_notice reducer")    
-            console.log(action)
-
             return {
                 ...state,
-                // charts: [...state.charts],
                 requesting: true
             }
 
         case 'ADD_NOTICE':
             console.log("inside add notice reducer")    
-            console.log(state)
+            console.log(state.charts)
             console.log(action)
 
-            let chart = state.charts.find(chart => chart.id !== action.notice.data.attributes.chart_id)
-            console.log(chart)
-            let notice = {
-                content: action.notice.data.attributes.content,
-                votes: action.notice.data.attributes.votes,
-                chart_id: action.notice.data.attributes.chart_id
+            // let chart = state.charts.map((chart, index) => {
+            //     if (chart.id == action.notice.chart_id){
+            //     })
+            //     }
+
+            return {
+                charts: state.charts.notices.concat(action.mutatedNotice), 
+                requesting: false
             }
-            // return {
-            //     charts: state.charts.notices.concat(notice), 
-            //     requesting: false
-            // }
-            return state
 
-            // return {
-            //     charts: state.charts.concat(action.charts.data),
-            //     requesting: false
-            // }
-
-            // return {...state, charts: [...state.charts[chart.id].attributes.notices, notice], requesting: false}
 
         case 'START_ADDING_ADDWONDER_REQUEST':
             console.log("inside start_adding_wonder reducer")    

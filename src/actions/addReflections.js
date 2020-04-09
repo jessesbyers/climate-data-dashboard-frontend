@@ -24,7 +24,17 @@ export const addNotice = ({content, votes, chart_id}) => {
         .then(function(response) {
             return response.json()
         })
-        .then(notice => dispatch({ type: 'ADD_NOTICE', notice }))
+        .then(notice => {
+            console.log(notice)
+            let mutatedNotice = {
+                id: notice.data.id,
+                content: notice.data.attributes.content,
+                votes: notice.data.attributes.votes,
+                chart_id: notice.data.attributes.chart.id
+            }
+            console.log(mutatedNotice)
+            dispatch({ type: 'ADD_NOTICE', mutatedNotice })})
+
         .catch(function(error) {
             alert("ERROR! Please Try Again");
             console.log(error.message);

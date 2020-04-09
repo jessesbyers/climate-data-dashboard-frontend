@@ -16,8 +16,7 @@ export function fetchChartData(url) {
             wonders: charts.data.attributes.wonders
           }
           console.log(chart)
-          // let mutatedCharts = (destructure and get just the parts we need, then replace charts with mutatedCharts)
-          // dispatch({ type: 'ADD_CHARTDATA', charts })
+
           dispatch({ type: 'ADD_CHARTDATA', chart })
 
       
