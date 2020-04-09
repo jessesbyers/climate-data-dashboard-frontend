@@ -27,7 +27,7 @@ export const addNotice = ({content, votes, chart_id}) => {
         .then(notice => {
             console.log(notice)
             let mutatedNotice = {
-                id: notice.data.id,
+                id: parseInt(notice.data.id),
                 content: notice.data.attributes.content,
                 votes: notice.data.attributes.votes,
                 chart_id: notice.data.attributes.chart.id
