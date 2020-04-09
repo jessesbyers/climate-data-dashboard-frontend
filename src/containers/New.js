@@ -15,8 +15,6 @@ class New extends Component {
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
         return (
             <div>
-                <h1>New Container Placeholder</h1>
-                <p>displays chart dynamically by url and new notice/wonder form aligned to chart.id</p>
                 <Chart url={chart.attributes.screenshot_url}/>
                 <ChartInput />
             </div>

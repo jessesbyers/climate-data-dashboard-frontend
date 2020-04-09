@@ -9,8 +9,6 @@ class InteractButton extends Component {
     
         return (
             <div>
-                <h3>InteractButton Component</h3>
-                <p>onClick, routes to New page to view larger chart and ChartInput Form</p>
 
                 {/* <button onClick={(url) => this.props.handleButtonClick(this.props.url)}>View and Interact</button> */}
                 <NavLink 
