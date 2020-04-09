@@ -38,8 +38,8 @@ class Home extends Component {
                 {this.props.charts.map((chart, index) => {
                     return (
                         <div key ={index}>
-                            <Chart url={chart.attributes.screenshot_url}/>
-                            <InteractButton url={chart.attributes.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
+                            <Chart url={chart.screenshot_url}/>
+                            <InteractButton url={chart.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
                         </div>
                     )
                 })}

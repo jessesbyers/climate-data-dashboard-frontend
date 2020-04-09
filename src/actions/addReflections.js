@@ -10,6 +10,7 @@ export const addNotice = ({content, votes, chart_id}) => {
         dispatch({ type: 'START_ADDING_ADDNOTICE_REQUEST' })
 
         let notice ={content, votes, chart_id}
+        
         let configObj = {
             method: "POST",
             headers: {

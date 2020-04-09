@@ -1,16 +1,20 @@
+import Chart from "../components/Chart"
+
 // may need to revise initial state
 export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
             return {
                 ...state,
-                charts: [...state.charts],
                 requesting: true
             }
 
         case 'ADD_CHARTDATA':
+            console.log(action.chart)
             return {
-                charts: state.charts.concat(action.charts.data),
+                charts: state.charts.concat(action.chart),
+                // change to this syntax
+                // ...state, charts: action.charts.data,
                 requesting: false
             }
         case 'DELETE_CHART':
@@ -25,7 +29,7 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
             return {
                 ...state,
-                charts: [...state.charts],
+                // charts: [...state.charts],
                 requesting: true
             }
 
@@ -34,7 +38,8 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             console.log(state)
             console.log(action)
 
-
+            let chart = state.charts.find(chart => chart.id !== action.notice.data.attributes.chart_id)
+            console.log(chart)
             let notice = {
                 content: action.notice.data.attributes.content,
                 votes: action.notice.data.attributes.votes,
@@ -50,6 +55,8 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             //     charts: state.charts.concat(action.charts.data),
             //     requesting: false
             // }
+
+            // return {...state, charts: [...state.charts[chart.id].attributes.notices, notice], requesting: false}
 
         case 'START_ADDING_ADDWONDER_REQUEST':
             console.log("inside start_adding_wonder reducer")    
