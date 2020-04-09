@@ -39,16 +39,45 @@ export const addNotice = ({content, votes, chart_id}) => {
             alert("ERROR! Please Try Again");
             console.log(error.message);
         });
-
     }
-
-
-
-   
 }
 
-export function addWonder(wonder) {
+export function addWonder({content, votes, chart_id}) {
     console.log("inside addWonder action")
-    console.log(wonder)
+
+    return dispatch => {
+        dispatch({ type: 'START_ADDING_ADDWONDER_REQUEST' })
+
+        let wonder ={content, votes, chart_id}
+        
+        let configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(wonder)
+        };
+
+        fetch(`http://localhost:3000/charts/${chart_id}/wonders`, configObj)
+        .then(function(response) {
+            return response.json()
+        })
+        .then(wonder => {
+            console.log(wonder)
+            let mutatedWonder = {
+                id: parseInt(wonder.data.id),
+                content: wonder.data.attributes.content,
+                votes: wonder.data.attributes.votes,
+                chart_id: wonder.data.attributes.chart.id
+            }
+            console.log(mutatedWonder)
+            dispatch({ type: 'ADD_WONDER', mutatedWonder })})
+
+        .catch(function(error) {
+            alert("ERROR! Please Try Again");
+            console.log(error.message);
+        });
+    }
    
 }

@@ -42,16 +42,32 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: false
             }
 
+
+
+
         case 'START_ADDING_ADDWONDER_REQUEST':
             console.log("inside start_adding_wonder reducer")    
-            console.log(action)
+            return {
+                ...state,
+                requesting: true
+            }
 
-            return state
+        case 'ADD_WONDER':                
+            let idx = state.charts.findIndex(chart => chart.id == action.mutatedWonder.chart_id)
 
-        case 'ADD_WONDER':
-            console.log("inside add wonder reducer")    
-            console.log(action)
-            return state
+            return {
+                ...state,
+                charts: [...state.charts.slice(0, idx),
+                    {
+                    ...state.charts[idx], wonders: [...state.charts[idx].wonders, action.mutatedWonder]
+                    },
+                    ...state.charts.slice(idx + 1)
+                ],
+                requesting: false
+            }
+    
+
+
 
 
         // case 'UPVOTE':

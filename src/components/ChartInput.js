@@ -25,18 +25,15 @@ class ChartInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-
         this.props.addNotice(this.state.notice)
-
-        // this.props.addWonder(this.state.wonder)
-
+        this.props.addWonder(this.state.wonder)
         this.setState({
             notice: {content: ""},
             wonder: {content: ""}
         })
     }
+
     render() {
-        console.log(this)
     
         return (
             <div>
