@@ -3,19 +3,24 @@ import Chart from '../components/Chart'
 import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
 import { NavLink } from 'react-router-dom';
+import { deleteNotice } from '../actions/deleteReflections'
+import { deleteWonder } from '../actions/deleteReflections'
+
 
 
 import { connect } from 'react-redux'
 
 class Show extends Component {
 
-    handleDeleteNotice = (event, chart_id, notice_id) => {
-        console.log("delete notice clicked")
-    }
+    // handleDeleteNotice = (event, chart_id, notice_id) => {
+    //     console.log("delete notice clicked")
+    //     this.props.deleteNotice(notice_id)
+    // }
 
-    handleDeleteWonder = (event, chart_id, wonder_id) => {
-        console.log("delete wonder clicked")
-    }
+    // handleDeleteWonder = (event, chart_id, wonder_id) => {
+    //     console.log("delete wonder clicked")
+    //     this.props.deleteWonder(wonder_id)
+    // }
 
     render() {
         console.log(this.props)
@@ -34,9 +39,8 @@ class Show extends Component {
                         Interact
                     </NavLink>
 
-
-                    <Notices chart={chart} handleDeleteNotice={this.handleDeleteNotice}/>
-                    <Wonders chart={chart} handleDeleteWonder={this.handleDeleteWonder}/>
+                    <Notices chart={chart} deleteNotice={this.props.deleteNotice}/>
+                    <Wonders chart={chart} deleteWonder={this.props.deleteWonder}/>
                 
                 </div>
             );
@@ -63,4 +67,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect (mapStateToProps)(Show)
+export default connect (mapStateToProps, {deleteNotice, deleteWonder})(Show)

@@ -6,8 +6,8 @@ class Wonder extends Component {
     
         return (
             <div>
-                <h6>{this.props.content}</h6>
-                <p>Votes: {this.props.votes}</p>
+                <h6>{this.props.wonder.content}</h6>
+                <p>Votes: {this.props.wonder.votes}</p>
 
                 <div className="float-center">
                     <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -29,7 +29,7 @@ class Wonder extends Component {
                     <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={(event, chart_id, wonder_id) => this.props.handleDeleteWonder(event, this.props.chart.id, this.props.wonder.id)}
+                        onClick={(chart_id, wonder_id) => this.props.deleteWonder(this.props.chart.id, this.props.wonder.id)}
 
                     >
                         <span aria-hidden="true">&times;</span>
