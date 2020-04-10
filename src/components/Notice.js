@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 class Notice extends Component {
     render() {
+        console.log(this.props)
     
         return (
             <div>
-                <h6>{this.props.content}</h6>
-                <p>Votes: {this.props.votes}</p>
+                <h6>{this.props.notice.content}</h6>
+                <p>Votes: {this.props.notice.votes}</p>
 
 
                 <div className="float-center">
@@ -29,7 +30,7 @@ class Notice extends Component {
                     <button
                         type="button"
                         className="btn btn-danger"
-                        // onClick={}
+                        onClick={(event, chart_id, notice_id) => this.props.handleDeleteNotice(event, this.props.chart.id, this.props.notice.id)}
 
                     >
                         <span aria-hidden="true">&times;</span>

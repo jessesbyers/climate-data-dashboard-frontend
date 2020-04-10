@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Wonder extends Component {
     render() {
+        console.log(this.props)
     
         return (
             <div>
@@ -28,7 +29,7 @@ class Wonder extends Component {
                     <button
                         type="button"
                         className="btn btn-danger"
-                        // onClick={}
+                        onClick={(event, chart_id, wonder_id) => this.props.handleDeleteWonder(event, this.props.chart.id, this.props.wonder.id)}
 
                     >
                         <span aria-hidden="true">&times;</span>

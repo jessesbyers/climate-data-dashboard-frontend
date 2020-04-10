@@ -9,6 +9,14 @@ import { connect } from 'react-redux'
 
 class Show extends Component {
 
+    handleDeleteNotice = (event, chart_id, notice_id) => {
+        console.log("delete notice clicked")
+    }
+
+    handleDeleteWonder = (event, chart_id, wonder_id) => {
+        console.log("delete wonder clicked")
+    }
+
     render() {
         console.log(this.props)
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
@@ -27,8 +35,8 @@ class Show extends Component {
                     </NavLink>
 
 
-                    <Notices chart={chart}/>
-                    <Wonders chart={chart}/>
+                    <Notices chart={chart} handleDeleteNotice={this.handleDeleteNotice}/>
+                    <Wonders chart={chart} handleDeleteWonder={this.handleDeleteWonder}/>
                 
                 </div>
             );

@@ -9,8 +9,6 @@ class InteractButton extends Component {
     
         return (
             <div>
-
-                {/* <button onClick={(url) => this.props.handleButtonClick(this.props.url)}>View and Interact</button> */}
                 <NavLink 
                     style={{ marginRight: '10px' }} 
                     to={`/charts/${this.props.chart_id}/interact`}
