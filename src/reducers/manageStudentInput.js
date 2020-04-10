@@ -40,9 +40,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: false
             }
 
-
-
-
         case 'START_ADDING_ADDWONDER_REQUEST':
             console.log("inside start_adding_wonder reducer")    
             return {
@@ -64,6 +61,33 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: false
             }
     
+
+        case 'START_DELETE_NOTICE_REQUEST':
+            console.log("inside START_DELETE_NOTICE_REQUEST reducer")    
+            return {
+                ...state,
+                requesting: true
+            }
+
+        case 'DELETE_NOTICE':
+            console.log("inside DELETE_NOTICE reducer")
+            return state    
+
+
+
+
+        case 'START_DELETE_WONDER_REQUEST':
+            console.log("inside START_DELETE_WONDER_REQUEST reducer")    
+            return {
+                ...state,
+                requesting: true
+            }
+
+        case 'DELETE_WONDER':
+            console.log("inside DELETE_WONDER reducer")
+            return state     
+
+
 
 
 
