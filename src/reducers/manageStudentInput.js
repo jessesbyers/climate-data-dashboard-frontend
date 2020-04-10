@@ -1,6 +1,7 @@
 export default function manageStudentInput(state = {charts: [], requesting: false}, action) {
-// const manageStudentInput = (state = {charts: [], requesting: false}, action) => {
-// export default (state = {charts: [], requesting: false}, action) => {
+
+    let i
+
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
             return {
@@ -35,15 +36,15 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
             }
 
         case 'ADD_NOTICE':  
-            let index = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
+            i = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
 
             return {
                 ...state,
-                charts: [...state.charts.slice(0, index),
+                charts: [...state.charts.slice(0, i),
                     {
-                    ...state.charts[index], notices: [...state.charts[index].notices, action.mutatedNotice]
+                    ...state.charts[i], notices: [...state.charts[i].notices, action.mutatedNotice]
                     },
-                    ...state.charts.slice(index + 1)
+                    ...state.charts.slice(i + 1)
                 ],
                 requesting: false
             }
@@ -59,15 +60,15 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
 
         case 'ADD_WONDER':   
         console.log(action)             
-            let idx = state.charts.findIndex(chart => chart.id === action.mutatedWonder.chart_id)
+            i = state.charts.findIndex(chart => chart.id === action.mutatedWonder.chart_id)
 
             return {
                 ...state,
-                charts: [...state.charts.slice(0, idx),
+                charts: [...state.charts.slice(0, i),
                     {
-                    ...state.charts[idx], wonders: [...state.charts[idx].wonders, action.mutatedWonder]
+                    ...state.charts[i], wonders: [...state.charts[i].wonders, action.mutatedWonder]
                     },
-                    ...state.charts.slice(idx + 1)
+                    ...state.charts.slice(i + 1)
                 ],
                 requesting: false
             }
@@ -83,7 +84,7 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
             }
 
         case 'DELETE_NOTICE': 
-            let i = state.charts.findIndex(chart => chart.id === action.chartId)
+            i = state.charts.findIndex(chart => chart.id === action.chartId)
 
             return {
                 ...state, 
@@ -105,14 +106,14 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
             }
 
         case 'DELETE_WONDER': 
-            let ix = state.charts.findIndex(chart => chart.id === action.chartId)
+            i = state.charts.findIndex(chart => chart.id === action.chartId)
 
             return {
                 ...state, 
-                charts: [...state.charts.slice(0, ix),
-                    {...state.charts[ix], wonders: state.charts[ix].wonders.filter(wonder => wonder.id !== action.wonder_id)
+                charts: [...state.charts.slice(0, i),
+                    {...state.charts[i], wonders: state.charts[i].wonders.filter(wonder => wonder.id !== action.wonder_id)
                     },
-                    ...state.charts.slice(ix + 1)
+                    ...state.charts.slice(i + 1)
                 ],
                 requesting: false
             }
@@ -126,14 +127,14 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
             }
 
         case 'UPVOTE_NOTICE':
-            let ind = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
+            i = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
 
             return {
                 ...state, 
-                charts: [...state.charts.slice(0, ind),
-                    {...state.charts[ind], notices: [...state.charts[ind].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
+                charts: [...state.charts.slice(0, i),
+                    {...state.charts[i], notices: [...state.charts[i].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
                     },
-                    ...state.charts.slice(ind + 1)
+                    ...state.charts.slice(i + 1)
                 ],
                 requesting: false
             }
@@ -149,14 +150,14 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
                 }
     
             case 'UPVOTE_WONDER':
-                let inde = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
+                i = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
     
                 return {
                     ...state, 
-                    charts: [...state.charts.slice(0, inde),
-                        {...state.charts[inde], wonders: [...state.charts[inde].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
+                    charts: [...state.charts.slice(0, i),
+                        {...state.charts[i], wonders: [...state.charts[i].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
                         },
-                        ...state.charts.slice(inde + 1)
+                        ...state.charts.slice(i + 1)
                     ],
                     requesting: false
                 }
@@ -171,14 +172,14 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
                     }
         
                 case 'DOWNVOTE_NOTICE':
-                    let ndx = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
+                    i = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
         
                     return {
                         ...state, 
-                        charts: [...state.charts.slice(0, ndx),
-                            {...state.charts[ndx], notices: [...state.charts[ndx].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
+                        charts: [...state.charts.slice(0, i),
+                            {...state.charts[i], notices: [...state.charts[i].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
                             },
-                            ...state.charts.slice(ndx + 1)
+                            ...state.charts.slice(i + 1)
                         ],
                         requesting: false
                     }
@@ -192,14 +193,14 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
                         }
             
                     case 'DOWNVOTE_WONDER':
-                        let dx = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
+                        i = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
             
                         return {
                             ...state, 
-                            charts: [...state.charts.slice(0, dx),
-                                {...state.charts[dx], wonders: [...state.charts[dx].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
+                            charts: [...state.charts.slice(0, i),
+                                {...state.charts[i], wonders: [...state.charts[i].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
                                 },
-                                ...state.charts.slice(dx + 1)
+                                ...state.charts.slice(i + 1)
                             ],
                             requesting: false
                         }
@@ -209,5 +210,3 @@ export default function manageStudentInput(state = {charts: [], requesting: fals
             return state
     }
 }
-
-// export default manageStudentInput;
