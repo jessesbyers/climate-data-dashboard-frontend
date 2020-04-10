@@ -1,4 +1,6 @@
-export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
+export default function manageStudentInput(state = {charts: [], requesting: false}, action) {
+// const manageStudentInput = (state = {charts: [], requesting: false}, action) => {
+// export default (state = {charts: [], requesting: false}, action) => {
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
             return {
@@ -203,10 +205,9 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                         }
 
 
-
-
-
         default:
             return state
     }
 }
+
+// export default manageStudentInput;
