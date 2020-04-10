@@ -162,8 +162,45 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
 
 
+                case 'START_DOWNVOTE_NOTICE_REQUEST':
+                    return {
+                        ...state,
+                        requesting: true
+                    }
+        
+                case 'DOWNVOTE_NOTICE':
+                    let ndx = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
+        
+                    return {
+                        ...state, 
+                        charts: [...state.charts.slice(0, ndx),
+                            {...state.charts[ndx], notices: [...state.charts[ndx].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
+                            },
+                            ...state.charts.slice(ndx + 1)
+                        ],
+                        requesting: false
+                    }
 
 
+
+                    case 'START_DOWNVOTE_WONDER_REQUEST':
+                        return {
+                            ...state,
+                            requesting: true
+                        }
+            
+                    case 'DOWNVOTE_WONDER':
+                        let dx = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
+            
+                        return {
+                            ...state, 
+                            charts: [...state.charts.slice(0, dx),
+                                {...state.charts[dx], wonders: [...state.charts[dx].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
+                                },
+                                ...state.charts.slice(dx + 1)
+                            ],
+                            requesting: false
+                        }
 
 
 

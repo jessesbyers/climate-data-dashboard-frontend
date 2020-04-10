@@ -1,6 +1,7 @@
 
 export const deleteNotice = (chart_id, notice_id) => {
     console.log("inside delete notice action")
+    console.log(notice_id)
 
     return dispatch => {
         dispatch({ type: 'START_DELETE_NOTICE_REQUEST' })

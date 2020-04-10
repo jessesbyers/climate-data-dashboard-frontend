@@ -29,7 +29,7 @@ class Notice extends Component {
                     <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice_id)}
+                        onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice.id)}
                     >
                         <span aria-hidden="true">&times;</span>
                     </button>
