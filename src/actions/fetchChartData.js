@@ -8,7 +8,7 @@ export function fetchChartData(url) {
         .then(charts => {
           console.log(charts)
           let chart = {
-            id: charts.data.id,
+            id: parseInt(charts.data.id),
             name: charts.data.attributes.name,
             data_url: charts.data.attributes.data_url,
             screenshot_url: charts.data.attributes.screenshot_url,

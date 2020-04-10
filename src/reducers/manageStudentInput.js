@@ -24,8 +24,10 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: true
             }
 
-        case 'ADD_NOTICE':                
-            let index = state.charts.findIndex(chart => chart.id == action.mutatedNotice.chart_id)
+        case 'ADD_NOTICE':  
+        console.log(action)  
+        console.log(state.charts)            
+            let index = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
 
             return {
                 ...state,
@@ -44,8 +46,9 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: true
             }
 
-        case 'ADD_WONDER':                
-            let idx = state.charts.findIndex(chart => chart.id == action.mutatedWonder.chart_id)
+        case 'ADD_WONDER':   
+        console.log(action)             
+            let idx = state.charts.findIndex(chart => chart.id === action.mutatedWonder.chart_id)
 
             return {
                 ...state,
@@ -69,7 +72,7 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'DELETE_NOTICE': 
-            let i = state.charts.findIndex(chart => chart.id == action.chartId)
+            let i = state.charts.findIndex(chart => chart.id === action.chartId)
 
             return {
                 ...state, 
@@ -89,7 +92,7 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
             case 'DELETE_WONDER': 
-            let ix = state.charts.findIndex(chart => chart.id == action.chartId)
+            let ix = state.charts.findIndex(chart => chart.id === action.chartId)
 
             return {
                 ...state, 

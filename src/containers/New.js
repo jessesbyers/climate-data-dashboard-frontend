@@ -10,7 +10,7 @@ class New extends Component {
 
     render() {
 
-        const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
+        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
     
         if (chart) {
             return (

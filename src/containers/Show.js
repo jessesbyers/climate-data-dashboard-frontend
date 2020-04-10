@@ -12,7 +12,7 @@ class Show extends Component {
 
     render() {
         console.log(this.props)
-        const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
+        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
 
         if (chart) {
 
