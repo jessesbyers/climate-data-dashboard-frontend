@@ -13,23 +13,24 @@ class Wonder extends Component {
                     <button
                         type="button"
                         className="btn btn-primary"
-                        // onClick={}
+                        onClick={(chart_id, wonder_id) => this.props.upvoteWonder(this.props.chart.id, this.props.wonder.id)}
                     >
                         Upvote
                     </button>
+
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        // onClick={}
+                        onClick={(chart_id, wonder_id) => this.props.downvoteWonder(this.props.chart.id, this.props.wonder.id)}
 
                     >
                         Downvote
                     </button>
+
                     <button
                         type="button"
                         className="btn btn-danger"
                         onClick={(chart_id, wonder_id) => this.props.deleteWonder(this.props.chart.id, this.props.wonder.id)}
-
                     >
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -14,14 +14,14 @@ class Notice extends Component {
                     <button
                         type="button"
                         className="btn btn-primary"
-                        // onClick={}
+                        onClick={(chart_id, notice_id) => this.props.upvoteNotice(this.props.chart.id, this.props.notice.id)}
                     >
                         Upvote
                     </button>
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        // onClick={}
+                        onClick={(chart_id, notice_id) => this.props.downvoteNotice(this.props.chart.id, this.props.notice.id)}
 
                     >
                         Downvote
@@ -30,7 +30,6 @@ class Notice extends Component {
                         type="button"
                         className="btn btn-danger"
                         onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice.id)}
-
                     >
                         <span aria-hidden="true">&times;</span>
                     </button>
