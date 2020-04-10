@@ -1,4 +1,3 @@
-// may need to revise initial state
 export default function manageStudenInput(state = {charts: [], requesting: false}, action) {
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
@@ -25,8 +24,10 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'ADD_NOTICE':  
-        console.log(action)  
-        console.log(state.charts)            
+        
+        // return state.charts.map(chart => {
+        //     if (chart.id === action.mutatedNotice.chartId){
+        //         return {...chart, notices: [...chart.notices.map(notice => )]})
             let index = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
 
             return {
