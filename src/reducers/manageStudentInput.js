@@ -11,11 +11,20 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 charts: state.charts.concat(action.chart),
                 requesting: false
             }
+
+
+
+
         case 'DELETE_CHART':
             return {
                 charts: state.charts.filter(chart => chart.id !== action.id), 
                 requesting: false
             }    
+
+
+
+
+
 
         case 'START_ADDING_ADDNOTICE_REQUEST':
             return {
@@ -24,10 +33,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'ADD_NOTICE':  
-        
-        // return state.charts.map(chart => {
-        //     if (chart.id === action.mutatedNotice.chartId){
-        //         return {...chart, notices: [...chart.notices.map(notice => )]})
             let index = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
 
             return {
@@ -40,6 +45,9 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 ],
                 requesting: false
             }
+
+
+
 
         case 'START_ADDING_ADDWONDER_REQUEST':
             return {
@@ -85,6 +93,9 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: false
             }
 
+
+
+
         case 'START_DELETE_WONDER_REQUEST':
             return {
                 ...state,
@@ -103,6 +114,8 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 ],
                 requesting: false
             }
+
+
 
         case 'START_UPVOTE_NOTICE_REQUEST':
             return {
@@ -127,9 +140,33 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
 
 
+            case 'START_UPVOTE_WONDER_REQUEST':
+                return {
+                    ...state,
+                    requesting: true
+                }
+    
+            case 'UPVOTE_WONDER':
+                let inde = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
+    
+                return {
+                    ...state, 
+                    charts: [...state.charts.slice(0, inde),
+                        {...state.charts[inde], wonders: [...state.charts[inde].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
+                        },
+                        ...state.charts.slice(inde + 1)
+                    ],
+                    requesting: false
+                }
 
-        // case 'UPVOTE':
-        //     return state
+
+
+
+
+
+
+
+
 
 
         default:

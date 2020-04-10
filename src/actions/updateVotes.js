@@ -38,6 +38,38 @@ export const upvoteNotice = (chart_id, notice) => {
 
 export const upvoteWonder = (chart_id, wonder) => {
     console.log("inside upvote wonder action")
+
+    let updatedWonder = {
+        id: wonder.id,
+        content: wonder.content,
+        votes: wonder.votes + 1,
+        chart_id: chart_id
+    }
+
+    return dispatch => {
+        dispatch({ type: 'START_UPVOTE_WONDER_REQUEST' })
+
+        let configObj = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({updatedWonder})
+        };
+
+        fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder.id}`, configObj)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+            dispatch({ type: 'UPVOTE_WONDER', updatedWonder })
+        })
+
+        .catch(function(error) {
+            alert("ERROR! Please Try Again");
+            console.log(error.message);
+        });
+    }
 }
 
 
