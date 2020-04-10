@@ -71,6 +71,8 @@ export default function manageStudenInput(state = {charts: [], requesting: false
 
         case 'DELETE_NOTICE':
             console.log("inside DELETE_NOTICE reducer")
+            console.log(state)
+            console.log(action)
             return state    
 
 

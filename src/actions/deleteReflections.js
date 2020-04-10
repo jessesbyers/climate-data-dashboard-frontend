@@ -5,6 +5,8 @@ export const deleteNotice = (chart_id, notice_id) => {
     return dispatch => {
         dispatch({ type: 'START_DELETE_NOTICE_REQUEST' })
 
+        let chartId = parseInt(chart_id)
+
         let configObj = {
             method: "DELETE",
             headers: {
@@ -13,11 +15,11 @@ export const deleteNotice = (chart_id, notice_id) => {
             },
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice_id}`, configObj)
+        fetch(`http://localhost:3000/charts/${chartId}/notices/${notice_id}`, configObj)
         .then(response => response.json())
         .then(json => {
             console.log(json)
-            dispatch({ type: 'DELETE_NOTICE', chart_id, notice_id })
+            dispatch({ type: 'DELETE_NOTICE', chartId, notice_id })
         })
 
         .catch(function(error) {
@@ -33,6 +35,9 @@ export const deleteNotice = (chart_id, notice_id) => {
 export const deleteWonder = (chart_id, wonder_id) => {
     console.log("inside delete wonder action")
 
+    let chartId = parseInt(chart_id)
+
+
     return dispatch => {
         dispatch({ type: 'START_DELETE_WONDER_REQUEST' })
 
@@ -44,11 +49,11 @@ export const deleteWonder = (chart_id, wonder_id) => {
             },
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder_id}`, configObj)
+        fetch(`http://localhost:3000/charts/${chartId}/wonders/${wonder_id}`, configObj)
         .then(response => response.json())
         .then(json => {
             console.log(json)
-            dispatch({ type: 'DELETE_WONDER', chart_id, wonder_id })
+            dispatch({ type: 'DELETE_WONDER', chartId, wonder_id })
         })
 
         .catch(function(error) {
