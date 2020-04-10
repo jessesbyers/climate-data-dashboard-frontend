@@ -9,8 +9,7 @@ import { connect } from 'react-redux'
 class New extends Component {
 
     render() {
-        console.log("rendering New component")
-        console.log(this.props)
+
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
     
         if (chart) {

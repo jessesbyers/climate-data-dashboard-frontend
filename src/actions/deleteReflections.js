@@ -18,7 +18,6 @@ export const deleteNotice = (chart_id, notice_id) => {
         fetch(`http://localhost:3000/charts/${chartId}/notices/${notice_id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'DELETE_NOTICE', chartId, notice_id })
         })
 
@@ -33,10 +32,8 @@ export const deleteNotice = (chart_id, notice_id) => {
 
 
 export const deleteWonder = (chart_id, wonder_id) => {
-    console.log("inside delete wonder action")
 
     let chartId = parseInt(chart_id)
-
 
     return dispatch => {
         dispatch({ type: 'START_DELETE_WONDER_REQUEST' })
@@ -52,7 +49,6 @@ export const deleteWonder = (chart_id, wonder_id) => {
         fetch(`http://localhost:3000/charts/${chartId}/wonders/${wonder_id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'DELETE_WONDER', chartId, wonder_id })
         })
 

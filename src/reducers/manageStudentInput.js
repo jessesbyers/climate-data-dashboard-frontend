@@ -8,7 +8,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'ADD_CHARTDATA':
-            console.log(action.chart)
             return {
                 charts: state.charts.concat(action.chart),
                 requesting: false
@@ -20,7 +19,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }    
 
         case 'START_ADDING_ADDNOTICE_REQUEST':
-            console.log("inside start_adding_notice reducer")    
             return {
                 ...state,
                 requesting: true
@@ -41,7 +39,6 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'START_ADDING_ADDWONDER_REQUEST':
-            console.log("inside start_adding_wonder reducer")    
             return {
                 ...state,
                 requesting: true
@@ -62,21 +59,27 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
     
 
+
+
+
         case 'START_DELETE_NOTICE_REQUEST':
-            console.log("inside START_DELETE_NOTICE_REQUEST reducer")    
             return {
                 ...state,
                 requesting: true
             }
 
-        case 'DELETE_NOTICE':
-            console.log("inside DELETE_NOTICE reducer")
-            console.log(state)
-            console.log(action)
-            return state    
+        case 'DELETE_NOTICE': 
+            let i = state.charts.findIndex(chart => chart.id == action.chartId)
 
-
-
+            return {
+                ...state, 
+                charts: [...state.charts.slice(0, i),
+                    {...state.charts[i], notices: state.charts[i].notices.filter(notice => notice.id !== action.notice_id)
+                    },
+                    ...state.charts.slice(i + 1)
+                ],
+                requesting: false
+            }
 
         case 'START_DELETE_WONDER_REQUEST':
             console.log("inside START_DELETE_WONDER_REQUEST reducer")    
@@ -85,13 +88,18 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 requesting: true
             }
 
-        case 'DELETE_WONDER':
-            console.log("inside DELETE_WONDER reducer")
-            return state     
+            case 'DELETE_WONDER': 
+            let ix = state.charts.findIndex(chart => chart.id == action.chartId)
 
-
-
-
+            return {
+                ...state, 
+                charts: [...state.charts.slice(0, ix),
+                    {...state.charts[ix], wonders: state.charts[ix].wonders.filter(wonder => wonder.id !== action.wonder_id)
+                    },
+                    ...state.charts.slice(ix + 1)
+                ],
+                requesting: false
+            }
 
 
         // case 'UPVOTE':

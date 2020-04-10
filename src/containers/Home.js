@@ -24,13 +24,10 @@ class Home extends Component {
     }
 
     handleDelete = (id) => {
-        console.log("inside handle delete")
-        console.log(id)
         this.props.deleteChart(id)
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>  
                 <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
@@ -50,7 +47,6 @@ class Home extends Component {
 
 // need to revise to only pass down what is needed
 const mapStateToProps = state => {
-    console.log(state)
     // return state
     return {
       charts: state.charts

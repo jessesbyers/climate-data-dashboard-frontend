@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 class InteractButton extends Component {
     render() {
-        console.log(this)
     
         return (
             <div>

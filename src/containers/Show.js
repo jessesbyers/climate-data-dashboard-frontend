@@ -6,26 +6,13 @@ import { NavLink } from 'react-router-dom';
 import { deleteNotice } from '../actions/deleteReflections'
 import { deleteWonder } from '../actions/deleteReflections'
 
-
-
 import { connect } from 'react-redux'
 
 class Show extends Component {
 
-    // handleDeleteNotice = (event, chart_id, notice_id) => {
-    //     console.log("delete notice clicked")
-    //     this.props.deleteNotice(notice_id)
-    // }
-
-    // handleDeleteWonder = (event, chart_id, wonder_id) => {
-    //     console.log("delete wonder clicked")
-    //     this.props.deleteWonder(wonder_id)
-    // }
-
     render() {
         console.log(this.props)
         const chart = this.props.charts.find(chart => {return chart.id === this.props.match.params.id})
-        console.log(chart)
 
         if (chart) {
 

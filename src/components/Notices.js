@@ -4,7 +4,6 @@ import Notice from '../components/Notice'
 
 class Notices extends Component {
     render() {
-        console.log(this.props)
     
         return (
             <div>

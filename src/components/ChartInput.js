@@ -15,7 +15,6 @@ class ChartInput extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target)
         this.setState({
             [event.target.name]: {content: event.target.value, votes: 1, chart_id: this.props.chart_id}
         })
@@ -54,4 +53,4 @@ const mapStateToProps = (state) => {
   }
   
   
-  export default connect(mapStateToProps, {addNotice, addWonder})(ChartInput);
+export default connect(mapStateToProps, {addNotice, addWonder})(ChartInput);
