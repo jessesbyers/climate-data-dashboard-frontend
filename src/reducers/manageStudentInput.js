@@ -86,13 +86,12 @@ export default function manageStudenInput(state = {charts: [], requesting: false
             }
 
         case 'START_DELETE_WONDER_REQUEST':
-            console.log("inside START_DELETE_WONDER_REQUEST reducer")    
             return {
                 ...state,
                 requesting: true
             }
 
-            case 'DELETE_WONDER': 
+        case 'DELETE_WONDER': 
             let ix = state.charts.findIndex(chart => chart.id === action.chartId)
 
             return {
@@ -104,6 +103,29 @@ export default function manageStudenInput(state = {charts: [], requesting: false
                 ],
                 requesting: false
             }
+
+        case 'START_UPVOTE_NOTICE_REQUEST':
+            return {
+                ...state,
+                requesting: true
+            }
+
+        case 'UPVOTE_NOTICE':
+            let ind = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
+
+            return {
+                ...state, 
+                charts: [...state.charts.slice(0, ind),
+                    {...state.charts[ind], notices: [...state.charts[ind].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
+                    },
+                    ...state.charts.slice(ind + 1)
+                ],
+                requesting: false
+            }
+
+
+
+
 
 
         // case 'UPVOTE':

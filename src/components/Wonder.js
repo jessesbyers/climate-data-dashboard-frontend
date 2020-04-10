@@ -13,7 +13,7 @@ class Wonder extends Component {
                     <button
                         type="button"
                         className="btn btn-primary"
-                        onClick={(chart_id, wonder_id) => this.props.upvoteWonder(this.props.chart.id, this.props.wonder.id)}
+                        onClick={(chart_id, wonder) => this.props.upvoteWonder(this.props.chart.id, this.props.wonder)}
                     >
                         Upvote
                     </button>
@@ -21,7 +21,7 @@ class Wonder extends Component {
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        onClick={(chart_id, wonder_id) => this.props.downvoteWonder(this.props.chart.id, this.props.wonder.id)}
+                        onClick={(chart_id, wonder) => this.props.downvoteWonder(this.props.chart.id, this.props.wonder)}
 
                     >
                         Downvote

@@ -14,14 +14,14 @@ class Notice extends Component {
                     <button
                         type="button"
                         className="btn btn-primary"
-                        onClick={(chart_id, notice_id) => this.props.upvoteNotice(this.props.chart.id, this.props.notice.id)}
+                        onClick={(chart_id, notice) => this.props.upvoteNotice(this.props.chart.id, this.props.notice)}
                     >
                         Upvote
                     </button>
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        onClick={(chart_id, notice_id) => this.props.downvoteNotice(this.props.chart.id, this.props.notice.id)}
+                        onClick={(chart_id, notice) => this.props.downvoteNotice(this.props.chart.id, this.props.notice)}
 
                     >
                         Downvote
@@ -29,7 +29,7 @@ class Notice extends Component {
                     <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice.id)}
+                        onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice_id)}
                     >
                         <span aria-hidden="true">&times;</span>
                     </button>
