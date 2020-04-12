@@ -4,7 +4,8 @@ export default function chartsReducer(state = [], action) {
 
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
-            return [...state]
+            console.log("inside chart fetch")
+            return state
 
         case 'ADD_CHARTDATA':
             return [...state, action.chart]
@@ -17,25 +18,7 @@ export default function chartsReducer(state = [], action) {
 
 
 
-        case 'START_ADDING_ADDNOTICE_REQUEST':
-            return {
-                ...state,
-                requesting: true
-            }
 
-        case 'ADD_NOTICE':  
-            i = state.charts.findIndex(chart => chart.id === action.mutatedNotice.chart_id)
-
-            return {
-                ...state,
-                charts: [...state.charts.slice(0, i),
-                    {
-                    ...state.charts[i], notices: [...state.charts[i].notices, action.mutatedNotice]
-                    },
-                    ...state.charts.slice(i + 1)
-                ],
-                requesting: false
-            }
 
 
 
@@ -198,3 +181,5 @@ export default function chartsReducer(state = [], action) {
             return state
     }
 }
+
+

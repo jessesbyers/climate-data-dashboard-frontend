@@ -35,7 +35,7 @@ class Home extends Component {
             <div>  
                 <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
 
-                {this.props.charts.map((chart, index) => {
+                {this.props.state.charts.map((chart, index) => {
                     return (
                         <div key ={index}>
                             <Chart url={chart.screenshot_url}/>
@@ -52,7 +52,7 @@ class Home extends Component {
 const mapStateToProps = state => {
     // return state
     return {
-      charts: state.charts
+      state
     }
 }
 

@@ -20,23 +20,25 @@ export function fetchChartData(url) {
 
   export function fetchNotices(url) {
     return (dispatch) => {
-      dispatch({ type: 'START_ADDING_NOTICE_REQUEST' });
+      dispatch({ type: 'START_FETCH_NOTICES_REQUEST' });
       fetch(`${url}/notices`)
         .then(response => response.json())
-        .then(notices => {
-          notices.map(notice => dispatch({ type: 'ADD_NOTICES', notice })) 
-        })
+        .then(notices => notices.map(notice => {return dispatch({ type: 'FETCH_NOTICES', notice })}))
+        // .then(notices => dispatch({ type: 'FETCH_NOTICES', notices }))
+
+          // console.log(notices)
+           
+          
+        
     };
   }
 
 
   export function fetchWonders(url) {
     return (dispatch) => {
-      dispatch({ type: 'START_ADDING_WONDER_REQUEST' });
+      dispatch({ type: 'START_FETCH_WONDERS_REQUEST' });
       fetch(`${url}/wonders`)
         .then(response => response.json())
-        .then(wonders => {
-          wonders.map(wonder => dispatch({ type: 'ADD_WONDERS', wonder })) 
-        })
+        .then(wonders => wonders.map(wonder => {return dispatch({ type: 'FETCH_WONDERS', wonder })}))
     };
   }
