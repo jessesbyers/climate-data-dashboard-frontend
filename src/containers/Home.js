@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart from '../components/Chart'
 import InteractButton from '../components/InteractButton'
 import DropdownInput from '../components/DropdownInput'
-import { fetchChartData } from '../actions/fetchChartData'
+import { fetchChartData, fetchNotices, fetchWonders } from '../actions/fetchChartData'
 import { deleteChart } from '../actions/deleteChart'
 
 
@@ -18,6 +18,8 @@ class Home extends Component {
         event.preventDefault()
         if (this.state.chart_url !== "") {
             this.props.fetchChartData(this.state.chart_url)
+            this.props.fetchNotices(this.state.chart_url)
+            this.props.fetchWonders(this.state.chart_url)
         } else {
             return "Please choose a chart from the dropdown menu"
         }
@@ -53,4 +55,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps, {fetchChartData, deleteChart})(Home)
+export default connect (mapStateToProps, {fetchChartData, fetchNotices, fetchWonders, deleteChart})(Home)

@@ -8,18 +8,35 @@ export function fetchChartData(url) {
         .then(charts => {
           console.log(charts)
           let chart = {
-            id: parseInt(charts.data.id),
-            name: charts.data.attributes.name,
-            data_url: charts.data.attributes.data_url,
-            screenshot_url: charts.data.attributes.screenshot_url,
-            notices: charts.data.attributes.notices,
-            wonders: charts.data.attributes.wonders
+            id: parseInt(charts.id),
+            name: charts.name,
+            data_url: charts.data_url,
+            screenshot_url: charts.screenshot_url
           }
-          console.log(chart)
-
           dispatch({ type: 'ADD_CHARTDATA', chart })
-
-      
       });
+    };
+  }
+
+  export function fetchNotices(url) {
+    return (dispatch) => {
+      dispatch({ type: 'START_ADDING_NOTICE_REQUEST' });
+      fetch(`${url}/notices`)
+        .then(response => response.json())
+        .then(notices => {
+          notices.map(notice => dispatch({ type: 'ADD_NOTICES', notice })) 
+        })
+    };
+  }
+
+
+  export function fetchWonders(url) {
+    return (dispatch) => {
+      dispatch({ type: 'START_ADDING_WONDER_REQUEST' });
+      fetch(`${url}/wonders`)
+        .then(response => response.json())
+        .then(wonders => {
+          wonders.map(wonder => dispatch({ type: 'ADD_WONDERS', wonder })) 
+        })
     };
   }
