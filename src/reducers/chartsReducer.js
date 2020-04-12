@@ -1,4 +1,4 @@
-export default function manageStudentInput(state = {charts: [], requesting: false}, action) {
+export default function chartsReducer(state = [], action) {
 
     let i
 

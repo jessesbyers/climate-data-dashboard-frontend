@@ -30,6 +30,7 @@ class Home extends Component {
     }
 
     render() {
+        console.log(this)
         return (
             <div>  
                 <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
