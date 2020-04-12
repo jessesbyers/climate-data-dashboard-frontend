@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 class Show extends Component {
 
     render() {
-        console.log(this.props)
+        console.log(this)
         const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
         const notices = this.props.state.notices.filter(notice => notice.chart_id === chart.id)
         const wonders = this.props.state.wonders.filter(wonder => wonder.chart_id === chart.id)
@@ -32,6 +32,9 @@ class Show extends Component {
                     <Notices chart={chart} notices={notices} deleteNotice={this.props.deleteNotice} upvoteNotice={this.props.upvoteNotice} downvoteNotice={this.props.downvoteNotice}/>
                     <Wonders chart={chart} wonders={wonders} deleteWonder={this.props.deleteWonder} upvoteWonder={this.props.upvoteWonder} downvoteWonder={this.props.downvoteWonder}/>
                 
+
+                    {/* <Notices chart={chart} notices={notices} />
+                    <Wonders chart={chart} wonders={wonders} /> */}
                 </div>
             );
         } else {

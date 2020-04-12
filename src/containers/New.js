@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 class New extends Component {
 
     render() {
-        console.log(this)
 
         const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
     
