@@ -4,25 +4,13 @@ export default function chartsReducer(state = [], action) {
 
     switch (action.type) {
         case 'START_ADDING_CHARTDATA_REQUEST':
-            return {
-                ...state,
-                requesting: true
-            }
+            return [...state]
 
         case 'ADD_CHARTDATA':
-            return {
-                charts: state.charts.concat(action.chart),
-                requesting: false
-            }
-
-
-
+            return [...state, action.chart]
 
         case 'DELETE_CHART':
-            return {
-                charts: state.charts.filter(chart => chart.id !== action.id), 
-                requesting: false
-            }    
+            return [state.filter(chart => chart.id !== action.id)]    
 
 
 
