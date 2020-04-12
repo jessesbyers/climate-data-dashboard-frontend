@@ -17,16 +17,10 @@ export default function wondersReducer(state = [], action) {
 
 
 
-
-// need to revise below 
-
         case 'START_DELETE_WONDER_REQUEST':
             return state
 
         case 'DELETE_WONDER': 
-        console.log("inside delete wonder reducer")
-        console.log(state)
-        console.log(action)
             let remainingWonders = state.map(wonder => {
                 if (wonder.id === action.wonder_id) {
                     return action.wonder_id
@@ -39,63 +33,39 @@ export default function wondersReducer(state = [], action) {
 
 
 
-        // case 'START_DELETE_WONDER_REQUEST':
-        //     return {
-        //         ...state,
-        //         requesting: true
-        //     }
 
-        // case 'DELETE_WONDER': 
-        //     ix = state.charts.findIndex(chart => chart.id === action.chartId)
 
-        //     return {
-        //         ...state, 
-        //         charts: [...state.charts.slice(0, ix),
-        //             {...state.charts[ix], wonders: state.charts[ix].wonders.filter(wonder => wonder.id !== action.wonder_id)
-        //             },
-        //             ...state.charts.slice(ix + 1)
-        //         ],
-        //         requesting: false
-        //     }
+        case 'START_UPVOTE_WONDER_REQUEST':
+            return state
 
-            case 'START_UPVOTE_WONDER_REQUEST':
-                return {
-                    ...state,
-                    requesting: true
+        case 'UPVOTE_WONDER':
+            let upvotedWonders = state.map(wonder => {
+                if (wonder.id === action.updatedWonder.id) {
+                    return action.updatedWonder
+                } else {
+                    return wonder
                 }
-    
-            case 'UPVOTE_WONDER':
-                ix = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
-    
-                return {
-                    ...state, 
-                    charts: [...state.charts.slice(0, ix),
-                        {...state.charts[ix], wonders: [...state.charts[ix].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
-                        },
-                        ...state.charts.slice(ix + 1)
-                    ],
-                    requesting: false
-                }
+            })
 
-            case 'START_DOWNVOTE_WONDER_REQUEST':
-                return {
-                    ...state,
-                    requesting: true
-                }
-    
-            case 'DOWNVOTE_WONDER':
-                ix = state.charts.findIndex(chart => chart.id === action.updatedWonder.chart_id)
-    
-                return {
-                    ...state, 
-                    charts: [...state.charts.slice(0, ix),
-                        {...state.charts[ix], wonders: [...state.charts[ix].wonders.filter(wonder => wonder.id !== action.updatedWonder.id), action.updatedWonder]
-                        },
-                        ...state.charts.slice(ix + 1)
-                    ],
-                    requesting: false
-                }
+            return upvotedWonders
 
+
+
+        case 'START_DOWNVOTE_WONDER_REQUEST':
+            return state
+
+        case 'DOWNVOTE_WONDER':
+            let downvotedWonders = state.map(wonder => {
+                if (wonder.id === action.updatedWonder.id) {
+                    return action.updatedWonder
+                } else {
+                    return wonder
+                }
+            })
+
+            return downvotedWonders
+        
+        
                     
 
         default:

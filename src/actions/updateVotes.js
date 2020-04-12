@@ -1,6 +1,4 @@
 export const upvoteNotice = (chart_id, notice) => {
-    console.log("inside upvote notice action")
-    console.log(notice)
 
     let updatedNotice = {
         id: notice.id,
@@ -24,7 +22,6 @@ export const upvoteNotice = (chart_id, notice) => {
         fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'UPVOTE_NOTICE', updatedNotice })
         })
 
@@ -37,7 +34,6 @@ export const upvoteNotice = (chart_id, notice) => {
 }
 
 export const upvoteWonder = (chart_id, wonder) => {
-    console.log("inside upvote wonder action")
 
     let updatedWonder = {
         id: wonder.id,
@@ -61,7 +57,6 @@ export const upvoteWonder = (chart_id, wonder) => {
         fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'UPVOTE_WONDER', updatedWonder })
         })
 
@@ -77,9 +72,6 @@ export const upvoteWonder = (chart_id, wonder) => {
 
 
 export const downvoteNotice = (chart_id, notice) => {
-    console.log("inside downvote notice action")
-    console.log("inside upvote notice action")
-    console.log(notice)
 
     let updatedNotice = {
         id: notice.id,
@@ -103,7 +95,6 @@ export const downvoteNotice = (chart_id, notice) => {
         fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'UPVOTE_NOTICE', updatedNotice })
         })
 
@@ -115,8 +106,6 @@ export const downvoteNotice = (chart_id, notice) => {
 }
 
 export const downvoteWonder = (chart_id, wonder) => {
-    console.log("inside downvote wonder action")
-
 
     let updatedWonder = {
         id: wonder.id,
@@ -140,7 +129,6 @@ export const downvoteWonder = (chart_id, wonder) => {
         fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             dispatch({ type: 'DOWNVOTE_WONDER', updatedWonder })
         })
 

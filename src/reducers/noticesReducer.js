@@ -23,9 +23,6 @@ export default function noticesReducer(state = [], action) {
             return state
 
         case 'DELETE_NOTICE': 
-        console.log("inside delete notice reducer")
-        console.log(state)
-        console.log(action)
             let remainingNotices = state.map(notice => {
                 if (notice.id === action.notice_id) {
                     return action.notice_id
@@ -38,49 +35,40 @@ export default function noticesReducer(state = [], action) {
 
 
 
-// need to revise below 
-
 
         case 'START_UPVOTE_NOTICE_REQUEST':
-            return {
-                ...state,
-                requesting: true
-            }
+            return state
 
         case 'UPVOTE_NOTICE':
-            i = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
-
-            return {
-                ...state, 
-                charts: [...state.charts.slice(0, i),
-                    {...state.charts[i], notices: [...state.charts[i].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
-                    },
-                    ...state.charts.slice(i + 1)
-                ],
-                requesting: false
-            }
-
-            case 'START_DOWNVOTE_NOTICE_REQUEST':
-                return {
-                    ...state,
-                    requesting: true
+            let upvotedNotices = state.map(notice => {
+                if (notice.id === action.updatedNotice.id) {
+                    return action.updatedNotice
+                } else {
+                    return notice
                 }
-    
-            case 'DOWNVOTE_NOTICE':
-                i = state.charts.findIndex(chart => chart.id === action.updatedNotice.chart_id)
-    
-                return {
-                    ...state, 
-                    charts: [...state.charts.slice(0, i),
-                        {...state.charts[i], notices: [...state.charts[i].notices.filter(notice => notice.id !== action.updatedNotice.id), action.updatedNotice]
-                        },
-                        ...state.charts.slice(i + 1)
-                    ],
-                    requesting: false
+            })
+
+            return upvotedNotices
+
+
+
+        case 'START_DOWNVOTE_NOTICE_REQUEST':
+            return state
+
+        case 'DOWNVOTE_NOTICE':
+            let downvotedNotices = state.map(notice => {
+                if (notice.id === action.updatedNotice.id) {
+                    return action.updatedNotice
+                } else {
+                    return notice
                 }
+            })
+
+            return downvotedNotices
 
 
-            default:
-                return state
+
+        default:
+            return state
     }
 }
