@@ -1,5 +1,4 @@
 export const addNotice = (notice) => {
-    console.log("inside addNotice action")
 
     return dispatch => {
         dispatch({ type: 'START_ADDING_ADDNOTICE_REQUEST' })
@@ -18,14 +17,12 @@ export const addNotice = (notice) => {
             return response.json()
         })
         .then(notice => {
-            console.log(notice)
             let mutatedNotice = {
                 id: parseInt(notice.id),
                 content: notice.content,
                 votes: notice.votes,
                 chart_id: notice.chart_id
             }
-            console.log(mutatedNotice)
             dispatch({ type: 'ADD_NOTICE', mutatedNotice })})
 
         .catch(function(error) {
@@ -36,7 +33,6 @@ export const addNotice = (notice) => {
 }
 
 export function addWonder(wonder) {
-    console.log("inside addWonder action")
 
     return dispatch => {
         dispatch({ type: 'START_ADDING_ADDWONDER_REQUEST' })
@@ -55,14 +51,12 @@ export function addWonder(wonder) {
             return response.json()
         })
         .then(wonder => {
-            console.log(wonder)
             let mutatedWonder = {
                 id: parseInt(wonder.id),
                 content: wonder.content,
                 votes: wonder.votes,
                 chart_id: wonder.chart_id
             }
-            console.log(mutatedWonder)
             dispatch({ type: 'ADD_WONDER', mutatedWonder })})
 
         .catch(function(error) {
@@ -70,5 +64,4 @@ export function addWonder(wonder) {
             console.log(error.message);
         });
     }
-   
 }

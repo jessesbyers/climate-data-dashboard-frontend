@@ -18,7 +18,7 @@ export default function noticesReducer(state = [], action) {
 
 
 
-            
+// need to revise below 
 
         case 'START_DELETE_NOTICE_REQUEST':
             return {
