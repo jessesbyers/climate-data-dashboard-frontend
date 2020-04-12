@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Wonder from '../components/Wonder'
 
+import {  deleteWonder } from '../actions/deleteReflections'
+import { upvoteWonder, downvoteWonder } from '../actions/updateVotes'
+
+import { connect } from 'react-redux'
+
 
 class Wonders extends Component {
     render() {
@@ -16,4 +21,5 @@ class Wonders extends Component {
     }
 };
   
-  export default Wonders;
+//   export default Wonders;
+  export default connect (null, { deleteWonder, upvoteWonder, downvoteWonder })(Wonders)

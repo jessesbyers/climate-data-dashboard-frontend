@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Notice from '../components/Notice'
 
+import { deleteNotice } from '../actions/deleteReflections'
+import { upvoteNotice, downvoteNotice } from '../actions/updateVotes'
+
+import { connect } from 'react-redux'
 
 
 
@@ -21,4 +25,5 @@ class Notices extends Component {
     }
 };
   
-  export default Notices;
+//   export default Notices;
+  export default connect (null, {deleteNotice, upvoteNotice, downvoteNotice})(Notices)
