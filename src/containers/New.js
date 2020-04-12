@@ -9,8 +9,9 @@ import { connect } from 'react-redux'
 class New extends Component {
 
     render() {
+        console.log(this)
 
-        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
+        const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
     
         if (chart) {
             return (
@@ -47,7 +48,7 @@ class New extends Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
-      charts: state.charts
+      state
     }
   }
 

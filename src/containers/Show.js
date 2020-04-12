@@ -50,7 +50,7 @@ class Show extends Component {
 // need to revise to only pass down what is needed
 const mapStateToProps = state => {
     return {
-      charts: state.charts
+      state
     }
   }
 

@@ -26,7 +26,7 @@ export default function chartsReducer(state = [], action) {
         case 'START_ADDING_ADDWONDER_REQUEST':
             return {
                 ...state,
-                requesting: true
+                // requesting: true
             }
 
         case 'ADD_WONDER':   
