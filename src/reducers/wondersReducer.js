@@ -20,26 +20,43 @@ export default function wondersReducer(state = [], action) {
 
 // need to revise below 
 
-
-
         case 'START_DELETE_WONDER_REQUEST':
-            return {
-                ...state,
-                requesting: true
-            }
+            return state
 
         case 'DELETE_WONDER': 
-            ix = state.charts.findIndex(chart => chart.id === action.chartId)
+        console.log("inside delete wonder reducer")
+        console.log(state)
+        console.log(action)
+            let remainingWonders = state.map(wonder => {
+                if (wonder.id === action.wonder_id) {
+                    return action.wonder_id
+                } else {
+                    return wonder
+                }
+            })
 
-            return {
-                ...state, 
-                charts: [...state.charts.slice(0, ix),
-                    {...state.charts[ix], wonders: state.charts[ix].wonders.filter(wonder => wonder.id !== action.wonder_id)
-                    },
-                    ...state.charts.slice(ix + 1)
-                ],
-                requesting: false
-            }
+            return remainingWonders
+
+
+
+        // case 'START_DELETE_WONDER_REQUEST':
+        //     return {
+        //         ...state,
+        //         requesting: true
+        //     }
+
+        // case 'DELETE_WONDER': 
+        //     ix = state.charts.findIndex(chart => chart.id === action.chartId)
+
+        //     return {
+        //         ...state, 
+        //         charts: [...state.charts.slice(0, ix),
+        //             {...state.charts[ix], wonders: state.charts[ix].wonders.filter(wonder => wonder.id !== action.wonder_id)
+        //             },
+        //             ...state.charts.slice(ix + 1)
+        //         ],
+        //         requesting: false
+        //     }
 
             case 'START_UPVOTE_WONDER_REQUEST':
                 return {

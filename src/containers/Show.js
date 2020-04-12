@@ -3,8 +3,6 @@ import Chart from '../components/Chart'
 import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
 import { NavLink } from 'react-router-dom';
-// import { deleteNotice, deleteWonder } from '../actions/deleteReflections'
-// import { upvoteNotice, upvoteWonder, downvoteNotice, downvoteWonder } from '../actions/updateVotes'
 
 import { connect } from 'react-redux'
 
@@ -27,11 +25,7 @@ class Show extends Component {
                         to={`/charts/${chart.id}/interact`}
                     >
                         Interact
-                    </NavLink>
-
-                    {/* <Notices chart={chart} notices={notices} deleteNotice={this.props.deleteNotice} upvoteNotice={this.props.upvoteNotice} downvoteNotice={this.props.downvoteNotice}/>
-                    <Wonders chart={chart} wonders={wonders} deleteWonder={this.props.deleteWonder} upvoteWonder={this.props.upvoteWonder} downvoteWonder={this.props.downvoteWonder}/> */}
-                
+                    </NavLink>           
 
                     <Notices chart={chart} notices={notices} />
                     <Wonders chart={chart} wonders={wonders} />
@@ -60,5 +54,4 @@ const mapStateToProps = state => {
     }
   }
 
-// export default connect (mapStateToProps, {deleteNotice, deleteWonder, upvoteNotice, upvoteWonder, downvoteNotice, downvoteWonder})(Show)
 export default connect (mapStateToProps)(Show)

@@ -19,7 +19,7 @@ export const deleteNotice = (chart_id, notice_id) => {
         fetch(`http://localhost:3000/charts/${chartId}/notices/${notice_id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            dispatch({ type: 'DELETE_NOTICE', chartId, notice_id })
+            dispatch({ type: 'DELETE_NOTICE', notice_id })
         })
 
         .catch(function(error) {
@@ -50,7 +50,7 @@ export const deleteWonder = (chart_id, wonder_id) => {
         fetch(`http://localhost:3000/charts/${chartId}/wonders/${wonder_id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            dispatch({ type: 'DELETE_WONDER', chartId, wonder_id })
+            dispatch({ type: 'DELETE_WONDER', wonder_id })
         })
 
         .catch(function(error) {
