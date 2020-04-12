@@ -48,7 +48,7 @@ class ChartInput extends Component {
 
 // need to revise with content
 const mapStateToProps = (state) => {
-    return { charts: state.charts }
+    return state
     // return state
   }
   

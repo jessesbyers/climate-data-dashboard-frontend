@@ -1,15 +1,8 @@
-
-// action adds new notice and wonder from state and persists them into database 
-export const addNotice = ({content, votes, chart_id}) => {
+export const addNotice = (notice) => {
     console.log("inside addNotice action")
-    console.log(content)
-    console.log(votes)
-    console.log(chart_id)
 
     return dispatch => {
         dispatch({ type: 'START_ADDING_ADDNOTICE_REQUEST' })
-
-        let notice ={content, votes, chart_id}
         
         let configObj = {
             method: "POST",
@@ -20,17 +13,17 @@ export const addNotice = ({content, votes, chart_id}) => {
             body: JSON.stringify(notice)
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/notices`, configObj)
+        fetch(`http://localhost:3000/charts/${notice.chart_id}/notices`, configObj)
         .then(function(response) {
             return response.json()
         })
         .then(notice => {
             console.log(notice)
             let mutatedNotice = {
-                id: parseInt(notice.data.id),
-                content: notice.data.attributes.content,
-                votes: notice.data.attributes.votes,
-                chart_id: notice.data.attributes.chart.id
+                id: parseInt(notice.id),
+                content: notice.content,
+                votes: notice.votes,
+                chart_id: notice.chart_id
             }
             console.log(mutatedNotice)
             dispatch({ type: 'ADD_NOTICE', mutatedNotice })})
@@ -42,13 +35,11 @@ export const addNotice = ({content, votes, chart_id}) => {
     }
 }
 
-export function addWonder({content, votes, chart_id}) {
+export function addWonder(wonder) {
     console.log("inside addWonder action")
 
     return dispatch => {
         dispatch({ type: 'START_ADDING_ADDWONDER_REQUEST' })
-
-        let wonder ={content, votes, chart_id}
         
         let configObj = {
             method: "POST",
@@ -59,17 +50,17 @@ export function addWonder({content, votes, chart_id}) {
             body: JSON.stringify(wonder)
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/wonders`, configObj)
+        fetch(`http://localhost:3000/charts/${wonder.chart_id}/wonders`, configObj)
         .then(function(response) {
             return response.json()
         })
         .then(wonder => {
             console.log(wonder)
             let mutatedWonder = {
-                id: parseInt(wonder.data.id),
-                content: wonder.data.attributes.content,
-                votes: wonder.data.attributes.votes,
-                chart_id: wonder.data.attributes.chart.id
+                id: parseInt(wonder.id),
+                content: wonder.content,
+                votes: wonder.votes,
+                chart_id: wonder.chart_id
             }
             console.log(mutatedWonder)
             dispatch({ type: 'ADD_WONDER', mutatedWonder })})
