@@ -4,7 +4,7 @@ import Wonder from '../components/Wonder'
 
 class Wonders extends Component {
     render() {
-        let sortedWonders = this.props.chart.wonders.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
+        let sortedWonders = this.props.wonders.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
 
     
         return (

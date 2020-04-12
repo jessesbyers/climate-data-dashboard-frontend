@@ -12,7 +12,10 @@ class Show extends Component {
 
     render() {
         console.log(this.props)
-        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
+        const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
+        const notices = this.props.state.notices.filter(notice => notice.chart_id === chart.id)
+        const wonders = this.props.state.wonders.filter(wonder => wonder.chart_id === chart.id)
+
 
         if (chart) {
 
@@ -26,8 +29,8 @@ class Show extends Component {
                         Interact
                     </NavLink>
 
-                    <Notices chart={chart} deleteNotice={this.props.deleteNotice} upvoteNotice={this.props.upvoteNotice} downvoteNotice={this.props.downvoteNotice}/>
-                    <Wonders chart={chart} deleteWonder={this.props.deleteWonder} upvoteWonder={this.props.upvoteWonder} downvoteWonder={this.props.downvoteWonder}/>
+                    <Notices chart={chart} notices={notices} deleteNotice={this.props.deleteNotice} upvoteNotice={this.props.upvoteNotice} downvoteNotice={this.props.downvoteNotice}/>
+                    <Wonders chart={chart} wonders={wonders} deleteWonder={this.props.deleteWonder} upvoteWonder={this.props.upvoteWonder} downvoteWonder={this.props.downvoteWonder}/>
                 
                 </div>
             );

@@ -4,7 +4,9 @@ import Notice from '../components/Notice'
 
 class Notices extends Component {
     render() {
-        let sortedNotices = this.props.chart.notices.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
+        console.log(this.props)
+
+        let sortedNotices = this.props.notices.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
     
         return (
             <div>

@@ -15,32 +15,31 @@ class New extends Component {
     
         if (chart) {
             return (
-                    <div>
-                        <Chart url={chart.screenshot_url}/>
-                        <ChartInput chart_id={chart.id}/>
+                <div>
+                    <Chart url={chart.screenshot_url}/>
+                    <ChartInput chart_id={chart.id}/>
 
-                        <NavLink 
-                            to={`/charts/${chart.id}/reflections`}
-                        >
-                            Reflections
-                        </NavLink>
-                    </div>
+                    <NavLink 
+                        to={`/charts/${chart.id}/reflections`}
+                    >
+                        Reflections
+                    </NavLink>
+                </div>
             )
 
-            } else {
-                return (
-                    <div>
-                        <NavLink 
-                            style={{ marginRight: '10px' }} 
-                            to="/"
-                        >
-                            <h1>Set Up a Data Dashboard to Get Started</h1>
-                            <h3>Click Here</h3>
-                        </NavLink>
-                    </div>
-                )
-}
-        // );
+        } else {
+            return (
+                <div>
+                    <NavLink 
+                        style={{ marginRight: '10px' }} 
+                        to="/"
+                    >
+                        <h1>Set Up a Data Dashboard to Get Started</h1>
+                        <h3>Click Here</h3>
+                    </NavLink>
+                </div>
+            )
+        }
     }
 };
 
