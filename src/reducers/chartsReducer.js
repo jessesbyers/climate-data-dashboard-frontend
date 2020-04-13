@@ -9,7 +9,13 @@ export default function chartsReducer(state = [], action) {
             return [...state, action.chart]
 
         case 'DELETE_CHART':
-            return [state.filter(chart => chart.id !== action.id)]    
+            return [state.filter(chart => chart.id !== action.id)]   
+            
+        case 'START_ADDING_DATA_SOURCE_REQUEST':
+            return state
+
+        case 'ADDING_DATA_SOURCE':
+            return state
 
         default:
             return state

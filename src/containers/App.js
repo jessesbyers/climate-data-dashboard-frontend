@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar';
 import Home from '../containers/Home'
 import New from '../containers/New'
 import Show from '../containers/Show'
+import DataSourceInput from '../components/DataSourceInput';
+
 
 
 class App extends Component {
@@ -16,6 +18,7 @@ class App extends Component {
       <div>
         <NavBar />
         <Route exact path="/" component={Home} />
+        <Route path={`/charts/new`} component={DataSourceInput} />
         <Route path={`/charts/:id/interact`} component={New} />
         <Route path={`/charts/:id/reflections`} component={Show} />
       </div>

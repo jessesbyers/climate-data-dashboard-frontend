@@ -12,6 +12,14 @@ const NavBar = () => {
       >
         Return To Data Dashboard
       </NavLink>
+
+
+      <NavLink 
+        style={{ marginRight: '10px' }} 
+        to="/charts/new"
+      >
+        Add a New Data Source
+      </NavLink>
       
     </div>
   );
