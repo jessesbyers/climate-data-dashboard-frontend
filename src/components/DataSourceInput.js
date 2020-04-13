@@ -34,10 +34,17 @@ class DataSourceInput extends Component {
 
     }
 
-
-
     handleClick = () => {
         this.setState({ visible: true})
+    }
+
+    handleCancel = () => {
+        this.setState({
+            name: "",
+            data_url: "",
+            screenshot_url: "", 
+            visible: false
+        })
     }
 
     render() {
@@ -69,8 +76,13 @@ class DataSourceInput extends Component {
             return (
                 <div>
                     <h3>Confirm your New Data Source</h3>
+
+                    <h5>Name: {this.state.name}</h5>
                     <Chart url={this.state.screenshot_url}/>
+                    <p>Data Source: {this.state.data_url}</p>
                     <input type="submit" value="Save Data Source to Database" onClick={this.handleSave}/>
+                    <input type="submit" value="Cancel" onClick={this.handleCancel}/>
+
                 </div>
             )
         }        
