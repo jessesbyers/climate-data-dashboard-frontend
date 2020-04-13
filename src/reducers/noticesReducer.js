@@ -1,6 +1,4 @@
 export default function noticesReducer(state = [], action) {
-
-    let i 
     switch (action.type) {
         case 'START_FETCH_NOTICES_REQUEST':
             return state

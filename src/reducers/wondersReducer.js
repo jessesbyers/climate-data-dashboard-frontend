@@ -1,5 +1,4 @@
 export default function wondersReducer(state = [], action) {
-    let ix
     switch (action.type) {
         case 'START_FETCH_WONDERS_REQUEST':
             return state
