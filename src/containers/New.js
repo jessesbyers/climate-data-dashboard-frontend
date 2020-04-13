@@ -17,12 +17,6 @@ class New extends Component {
                 <div>
                     <Chart url={chart.screenshot_url}/>
                     <ChartInput chart_id={chart.id}/>
-
-                    <NavLink 
-                        to={`/charts/${chart.id}/reflections`}
-                    >
-                        Reflections
-                    </NavLink>
                 </div>
             )
 

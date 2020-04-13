@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 import { addNotice } from '../actions/addReflections';
 import { addWonder } from '../actions/addReflections';
+
 
 class ChartInput extends Component {
 
@@ -14,6 +16,7 @@ class ChartInput extends Component {
         }
     }
 
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: {content: event.target.value, votes: 1, chart_id: this.props.chart_id}
@@ -24,6 +27,18 @@ class ChartInput extends Component {
         event.preventDefault()
         this.props.addNotice(this.state.notice)
         this.props.addWonder(this.state.wonder)
+
+
+        let div1 = document.querySelector("div")
+        let div2 = document.createElement("div")
+
+
+        div2.innerHTML += `<li>I notice..."${this.state.notice.content}"</li> 
+                            <li>I wonder..."${this.state.wonder.content}"</li><br/>
+                            <a href="/charts/${this.props.chart_id}/reflections">View All Reflections</a>`
+
+        div1.appendChild(div2)
+
         this.setState({
             notice: {content: ""},
             wonder: {content: ""}
