@@ -9,6 +9,13 @@ import { deleteChart } from '../actions/deleteChart'
 
 import { connect } from 'react-redux'
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
+
+
+
 class Home extends Component {
 
     handleDropdownChange = (event) => {
@@ -34,16 +41,27 @@ class Home extends Component {
         console.log(this)
         return (
             <div>  
-                <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
+                <Row>
+                    <Col>
+                        <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
+                    </Col>
+                </Row>
 
-                {this.props.state.charts.map((chart, index) => {
-                    return (
-                        <div key ={index}>
-                            <Chart url={chart.screenshot_url}/>
-                            <InteractButton url={chart.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
-                        </div>
-                    )
-                })}
+                <Row>
+                    {this.props.state.charts.map((chart, index) => {
+                        return (
+                            <Col xs={3} >
+                
+                                <Card className="text-center" key={index}>
+                                        <Chart url={chart.screenshot_url} name={chart.name}/>
+
+                                        <InteractButton url={chart.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
+                                </Card>
+        
+                            </Col>
+                        )
+                    })}
+                </Row> 
             </div>
         );
     }

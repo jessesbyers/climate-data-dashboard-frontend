@@ -7,6 +7,7 @@ import New from '../containers/New'
 import Show from '../containers/Show'
 import DataSourceInput from '../components/DataSourceInput';
 
+import Container from 'react-bootstrap/Container';
 
 
 class App extends Component {
@@ -15,14 +16,16 @@ class App extends Component {
 
     return (
       <Router>
-      <div>
-        <NavBar />
-        <Route exact path="/" component={Home} />
-        <Route path={`/charts/new`} component={DataSourceInput} />
-        <Route path={`/charts/:id/interact`} component={New} />
-        <Route path={`/charts/:id/reflections`} component={Show} />
-      </div>
-    </Router>
+        <Container fluid>
+          <div>
+            <NavBar />
+            <Route exact path="/" component={Home} />
+            <Route path={`/charts/new`} component={DataSourceInput} />
+            <Route path={`/charts/:id/interact`} component={New} />
+            <Route path={`/charts/:id/reflections`} component={Show} />
+          </div>
+        </Container>
+      </Router>
     );
   }
 }
