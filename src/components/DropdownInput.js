@@ -25,10 +25,10 @@ class DropdownInput extends Component {
 
                 <form onSubmit={event => this.props.handleDropdownSubmit(event)}>
                     <select value={this.state.chart_url} onChange={event => this.props.handleDropdownChange(event)}>
-                        <option value="" disabled>Choose a Chart to Add to the Data Dashboard</option>
+                        <option value="" disabled>Choose a Chart to Load to the Data Dashboard</option>
                         {this.state.charts.map(chart => <option value={`http://localhost:3000/charts/${chart.id}`} key={chart.id}>{chart.name}</option>)}
                     </select>
-                    <input type="submit" value="Add" />
+                    <input type="submit" value="Load Chart" />
                 </form>
                     
             </div>

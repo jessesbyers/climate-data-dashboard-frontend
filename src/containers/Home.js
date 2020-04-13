@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Chart from '../components/Chart'
 import InteractButton from '../components/InteractButton'
 import DropdownInput from '../components/DropdownInput'
+import DataSourceInput from '../components/DataSourceInput'
+
 import { fetchChartData, fetchNotices, fetchWonders } from '../actions/fetchChartData'
 import { deleteChart } from '../actions/deleteChart'
 
@@ -29,11 +31,23 @@ class Home extends Component {
         this.props.deleteChart(id)
     }
 
+    // renderDataSourceInput = () => {
+    //     console.log("inside render data source input")
+    //     console.log(this)
+    //     return (
+            
+    //     )
+    // }
+
     render() {
         console.log(this)
         return (
             <div>  
                 <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
+                {/* <button onClick={this.renderDataSourceInput}>Add a New Data Source</button> */}
+                <DataSourceInput/>
+
+
 
                 {this.props.state.charts.map((chart, index) => {
                     return (
