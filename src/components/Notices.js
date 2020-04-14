@@ -14,7 +14,6 @@ class Notices extends Component {
     
         return (
             <div>
-                <h1>I Notice...</h1>
                 {sortedNotices.map(notice=> <Notice notice={notice} chart={this.props.chart} deleteNotice={this.props.deleteNotice} upvoteNotice={this.props.upvoteNotice} downvoteNotice={this.props.downvoteNotice}/>)}        
             </div>
         );

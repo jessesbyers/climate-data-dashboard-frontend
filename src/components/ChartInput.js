@@ -88,14 +88,12 @@ class ChartInput extends Component {
 
         } else if (this.state.view === true) {
             return (
-                <div>
                     <NavLink 
-                        style={{ marginRight: '10px' }} 
+                        style={{ marginRight: '10px'}, {backgroundColor: 'transparent'}} 
                         to={`/charts/${this.props.chart_id}/reflections`}
                         chart={this.props.chart}>
-                        <Button>View All Reflections For This Chart</Button>  
+                        <Button size="lg" block>View All Reflections For This Chart</Button>  
                     </NavLink>
-                </div>
             )
         }
     }

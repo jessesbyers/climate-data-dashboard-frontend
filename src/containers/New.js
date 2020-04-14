@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
+
 
 
 
@@ -21,11 +24,17 @@ class New extends Component {
                 <div>
                     <Row>
                         <Col>
-                            <ChartInput chart_id={chart.id}/>
+                            <Card>
+                                <ChartInput chart_id={chart.id}/>
+                            </Card>
+                            
+
                         </Col>
 
                         <Col>
-                            <Chart chart={chart}/>
+                            <Card>
+                                <Chart chart={chart}/>
+                            </Card>
                         </Col>
                     
                     </Row>

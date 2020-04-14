@@ -6,6 +6,8 @@ import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+
 
 
 import { connect } from 'react-redux'
@@ -27,7 +29,9 @@ class Show extends Component {
                     </Col>
 
                     <Col md={6}>
-                        <Chart chart={chart}/>
+                        <Card>
+                            <Chart chart={chart} />
+                        </Card>
 
                         <NavLink 
                             to={`/charts/${chart.id}/interact`}>
