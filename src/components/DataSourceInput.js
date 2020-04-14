@@ -90,12 +90,12 @@ class DataSourceInput extends Component {
             return (
                 <div>
                     <h3>Confirm your New Data Source</h3>
+                    <Button type="submit" onClick={this.handleSave}>Save Data Source to Database</Button>
+                    <Button type="submit" variant="danger" onClick={this.handleCancel}>Cancel</Button>
+                    {/* <input type="submit" value="Save Data Source to Database" onClick={this.handleSave}/>
+                    <input type="submit" value="Cancel" onClick={this.handleCancel}/> */}
+                    <Chart chart={this.state}/>
 
-                    <h5>Name: {this.state.name}</h5>
-                    <Chart url={this.state.screenshot_url}/>
-                    <p>Data Source: {this.state.data_url}</p>
-                    <input type="submit" value="Save Data Source to Database" onClick={this.handleSave}/>
-                    <input type="submit" value="Cancel" onClick={this.handleCancel}/>
 
                 </div>
             )
