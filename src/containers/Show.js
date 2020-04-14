@@ -4,6 +4,8 @@ import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 import { connect } from 'react-redux'
@@ -19,18 +21,24 @@ class Show extends Component {
         if (chart) {
 
             return (
-                <div>
-                    <Chart chart={chart}/>
+                <Row>
+                    <Col md={3}>
+                        <Notices chart={chart} notices={notices} />
+                    </Col>
 
+                    <Col md={6}>
+                        <Chart chart={chart}/>
 
-                    <NavLink 
-                        to={`/charts/${chart.id}/interact`}>
-                        <Button>Interact</Button>
-                    </NavLink>           
+                        <NavLink 
+                            to={`/charts/${chart.id}/interact`}>
+                            <Button>Interact</Button>
+                        </NavLink>  
+                    </Col>     
 
-                    <Notices chart={chart} notices={notices} />
-                    <Wonders chart={chart} wonders={wonders} />
-                </div>
+                    <Col md={3}>   
+                        <Wonders chart={chart} wonders={wonders} />
+                    </Col> 
+                </Row>
             );
         } else {
             return (

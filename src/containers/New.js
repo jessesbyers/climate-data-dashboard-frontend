@@ -3,6 +3,10 @@ import Chart from '../components/Chart'
 import ChartInput from '../components/ChartInput'
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 import { connect } from 'react-redux'
 
@@ -15,8 +19,16 @@ class New extends Component {
         if (chart) {
             return (
                 <div>
-                    <ChartInput chart_id={chart.id}/>
-                    <Chart chart={chart}/>
+                    <Row>
+                        <Col>
+                            <ChartInput chart_id={chart.id}/>
+                        </Col>
+
+                        <Col>
+                            <Chart chart={chart}/>
+                        </Col>
+                    
+                    </Row>
                 </div>
             )
 

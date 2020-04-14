@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+
 
 class Notice extends Component {
     render() {
@@ -7,41 +11,48 @@ class Notice extends Component {
         if (this.props.chart) {
     
             return (
-                <div>
-                    <h6>{this.props.notice.content}</h6>
-                    <p>Votes: {this.props.notice.votes}</p>
+                <Card className="text-center">
+                    <Card.Body>
+                        <Card.Title>
+                            {this.props.notice.content}
+                        </Card.Title>
+                        <Card.Text>
+                            Votes: {this.props.notice.votes}
+                        </Card.Text>
+                    </Card.Body>
 
-                    <div className="float-center">
-                        <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button
-                            type="button"
-                            className="btn btn-primary"
+                    <Card.Footer>
+
+                        <Button
+                            variant="primary"
                             onClick={(chart_id, notice) => this.props.upvoteNotice(this.props.chart.id, this.props.notice)}
                         >
-                            Upvote
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
+                            Agree
+                        </Button>
+                        <Button
+                            variant="success"
                             onClick={(chart_id, notice) => this.props.downvoteNotice(this.props.chart.id, this.props.notice)}
-
                         >
-                            Downvote
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-danger"
+                            Disagree
+                        </Button>
+                        <Button
+                            variant="danger"
                             onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice.id)}
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                    </div>
-                </div>
+                        >X
+                        </Button>
+                    </Card.Footer>
+                </Card>
             );
         } else {
             return (
-                <h3>I notice..."{this.props.notice.content}"</h3>
+                <Card className="text-center">
+                    <Card.Body>
+                        <Card.Header>I notice...</Card.Header>
+                        <Card.Title>
+                            {this.props.notice.content}
+                        </Card.Title>
+                    </Card.Body>
+                </Card>
             )
         }
     }

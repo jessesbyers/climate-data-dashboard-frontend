@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+
 
 class Wonder extends Component {
     render() {
@@ -6,44 +10,49 @@ class Wonder extends Component {
         if (this.props.chart) {
     
             return (
-                <div>
-                    <h6>{this.props.wonder.content}</h6>
-                    <p>Votes: {this.props.wonder.votes}</p>
+                <Card className="text-center">
+                    <Card.Body>
+                        <Card.Title>
+                            {this.props.wonder.content}
+                        </Card.Title>
+                        <Card.Text>
+                            Votes: {this.props.wonder.votes}
+                        </Card.Text>
+                    </Card.Body>
 
-                    <div className="float-center">
-                        <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button
-                            type="button"
-                            className="btn btn-primary"
+                    <Card.Footer>
+                        <Button
+                            variant="primary"
                             onClick={(chart_id, wonder) => this.props.upvoteWonder(this.props.chart.id, this.props.wonder)}
                         >
-                            Upvote
-                        </button>
+                            Agree
+                        </Button>
 
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
+                        <Button
+                            variant="success"
                             onClick={(chart_id, wonder) => this.props.downvoteWonder(this.props.chart.id, this.props.wonder)}
-
                         >
-                            Downvote
-                        </button>
+                            Disagree
+                        </Button>
 
-                        <button
-                            type="button"
-                            className="btn btn-danger"
+                        <Button
+                            variant="danger"
                             onClick={(chart_id, wonder_id) => this.props.deleteWonder(this.props.chart.id, this.props.wonder.id)}
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                    </div>
-
-                </div>
+                        >X
+                        </Button>
+                    </Card.Footer>
+                </Card>            
             );
         } else {
             return (
-                <h3>I wonder..."{this.props.wonder.content}"</h3>
+                <Card className="text-center">
+                    <Card.Body>
+                        <Card.Header>I wonder...</Card.Header>
+                        <Card.Title>
+                            {this.props.wonder.content}
+                        </Card.Title>
+                    </Card.Body>
+                </Card>
             )
         }
 

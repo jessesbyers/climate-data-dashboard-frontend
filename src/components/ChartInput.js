@@ -67,6 +67,7 @@ class ChartInput extends Component {
                         <Form.Group>
                             <Form.Control size="lg" type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
                         </Form.Group>
+                        
                         <Form.Group>
                             <Form.Control size="lg" type="text" name="wonder" placeholder="I wonder..." value={this.state.wonder.content} onChange={event => this.handleChange(event)}/>
                         </Form.Group>
