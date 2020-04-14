@@ -48,7 +48,8 @@ class Home extends Component {
                             <Col xs={3} >
                                 <Card className="text-center" key={chart.id}>
                 
-                                    <Chart url={chart.screenshot_url} name={chart.name}/>
+                                    {/* <Chart url={chart.screenshot_url} name={chart.name}/> */}
+                                    <Chart chart={chart}/>
 
                                     <InteractButton chart={chart} />
                                 </Card>
