@@ -13,9 +13,10 @@ class Notice extends Component {
             return (
                 <Card className="text-center">
                     <Card.Body>
-                        <Card.Title>
+                    <Card.Header>I notice...</Card.Header>
+                        <Card.Text>
                             {this.props.notice.content}
-                        </Card.Title>
+                        </Card.Text>
                         <Card.Text>
                             Votes: {this.props.notice.votes}
                         </Card.Text>

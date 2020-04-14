@@ -12,9 +12,10 @@ class Wonder extends Component {
             return (
                 <Card className="text-center">
                     <Card.Body>
-                        <Card.Title>
+                        <Card.Header>I wonder...</Card.Header>
+                        <Card.Text>
                             {this.props.wonder.content}
-                        </Card.Title>
+                        </Card.Text>
                         <Card.Text>
                             Votes: {this.props.wonder.votes}
                         </Card.Text>

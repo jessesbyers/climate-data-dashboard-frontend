@@ -5,8 +5,9 @@ import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
   return (
-    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
-        <h1>Climate Data Dashboard</h1>
+    // <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
+    <div>
+        <h1 class="header" >Climate Data Dashboard</h1>
 
       <NavLink 
         style={{ marginRight: '10px' }} 

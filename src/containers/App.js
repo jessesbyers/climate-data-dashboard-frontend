@@ -15,9 +15,9 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
-        <Container fluid>
-          <div>
+      <Router >
+        <Container fluid >
+          <div >
             <NavBar />
             <Route exact path="/" component={Home} />
             <Route path={`/charts/new`} component={DataSourceInput} />
