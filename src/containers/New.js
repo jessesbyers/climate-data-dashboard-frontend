@@ -10,12 +10,12 @@ class New extends Component {
 
     render() {
 
-        const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
+        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
     
         if (chart) {
             return (
                 <div>
-                    <Chart url={chart.screenshot_url}/>
+                    <Chart chart={chart}/>
                     <ChartInput chart_id={chart.id}/>
                 </div>
             )
@@ -36,11 +36,10 @@ class New extends Component {
     }
 };
 
-// need to revise to only pass down what is needed
 const mapStateToProps = state => {
     console.log(state)
     return {
-      state
+      charts: state.charts
     }
   }
 

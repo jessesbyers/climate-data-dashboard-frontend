@@ -8,8 +8,6 @@ import Wonder from '../components/Wonder'
 import { NavLink } from 'react-router-dom';
 
 
-
-
 class ChartInput extends Component {
 
     state = {
@@ -57,6 +55,7 @@ class ChartInput extends Component {
     }
 
     render() {
+        console.log(this)
         if (this.state.visible === false && this.state.view === false) {
             return (
                 <div>
@@ -84,26 +83,23 @@ class ChartInput extends Component {
         } else if (this.state.view === true) {
             return (
                 <div>
-                    <Notice notice={this.state.notice}/>
-                    <Wonder wonder={this.state.wonder}/>
                     <NavLink 
                         style={{ marginRight: '10px' }} 
                         to={`/charts/${this.props.chart_id}/reflections`}
+                        chart={this.props.chart}
                     >
                         View All Reflections For This Chart
                     </NavLink>
                 </div>
-
-
             )
         }
     }
 };
 
-// need to revise with content
 const mapStateToProps = (state) => {
-    return state
-    // return state
+    return {
+        chart: state.chart
+    }
   }
   
   

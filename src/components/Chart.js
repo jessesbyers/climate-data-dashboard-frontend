@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 
 class Chart extends Component {
     render() {    
-        console.log(this.props)
         if (this.props.chart.screenshot_url) {
         return (
                 <Card.Body>

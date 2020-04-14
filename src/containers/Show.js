@@ -10,16 +10,16 @@ class Show extends Component {
 
     render() {
         console.log(this)
-        const chart = this.props.state.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
-        const notices = this.props.state.notices.filter(notice => notice.chart_id === chart.id)
-        const wonders = this.props.state.wonders.filter(wonder => wonder.chart_id === chart.id)
-
+        const chart = this.props.charts.find(chart => {return chart.id === parseInt(this.props.match.params.id)})
+        const notices = this.props.notices.filter(notice => notice.chart_id === chart.id)
+        const wonders = this.props.wonders.filter(wonder => wonder.chart_id === chart.id)
 
         if (chart) {
 
             return (
                 <div>
-                    <Chart url={chart.screenshot_url}/>
+                    <Chart chart={chart}/>
+
 
                     <NavLink 
                         to={`/charts/${chart.id}/interact`}
@@ -47,10 +47,11 @@ class Show extends Component {
     }
 };
 
-// need to revise to only pass down what is needed
 const mapStateToProps = state => {
     return {
-      state
+      charts: state.charts, 
+      notices: state.notices, 
+      wonders: state.wonders
     }
   }
 
