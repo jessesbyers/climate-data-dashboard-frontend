@@ -3,9 +3,7 @@ import Chart from '../components/Chart'
 import InteractButton from '../components/InteractButton'
 import DropdownInput from '../components/DropdownInput'
 
-import { fetchChartData, fetchNotices, fetchWonders } from '../actions/fetchChartData'
 import { deleteChart } from '../actions/deleteChart'
-
 
 import { connect } from 'react-redux'
 
@@ -14,25 +12,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 
-
-
-
 class Home extends Component {
-
-    handleDropdownChange = (event) => {
-        this.setState({chart_url: event.target.value});
-    }
-
-    handleDropdownSubmit = (event) => {
-        event.preventDefault()
-        if (this.state.chart_url !== "") {
-            this.props.fetchChartData(this.state.chart_url)
-            this.props.fetchNotices(this.state.chart_url)
-            this.props.fetchWonders(this.state.chart_url)
-        } else {
-            return "Please choose a chart from the dropdown menu"
-        }
-    }
 
     // handleDelete = (charts) => {
     //     charts.map(chart => this.props.deleteChart(chart))
@@ -40,7 +20,7 @@ class Home extends Component {
 
     handleDelete = () => {
         console.log(this)
-        this.props.state.charts.map(chart => this.props.deleteChart(chart))
+        this.props.charts.map(chart => this.props.deleteChart(chart))
     }
 
 
@@ -50,7 +30,8 @@ class Home extends Component {
             <div>  
                 <Row>
                     <Col>
-                        <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={event => this.handleDropdownSubmit(event)}/>
+                        <DropdownInput />
+
                         <button variant="danger"
                             className="btn btn-danger"
                             onClick={this.handleDelete}>
@@ -61,7 +42,7 @@ class Home extends Component {
                 </Row>
 
                 <Row>
-                    {this.props.state.charts.map((chart, index) => {
+                    {this.props.charts.map((chart) => {
 
                         return (
                             <Col xs={3} >
@@ -80,12 +61,10 @@ class Home extends Component {
     }
 };
 
-// need to revise to only pass down what is needed
 const mapStateToProps = state => {
-    // return state
     return {
-      state
+      charts: state.charts
     }
 }
 
-export default connect (mapStateToProps, {fetchChartData, fetchNotices, fetchWonders, deleteChart})(Home)
+export default connect (mapStateToProps, {deleteChart})(Home)
