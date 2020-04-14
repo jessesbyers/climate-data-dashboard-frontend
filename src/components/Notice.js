@@ -25,18 +25,21 @@ class Notice extends Component {
                     <Card.Footer>
 
                         <Button
+                            size="sm"
                             variant="primary"
                             onClick={(chart_id, notice) => this.props.upvoteNotice(this.props.chart.id, this.props.notice)}
                         >
                             Agree
                         </Button>
                         <Button
+                            size="sm"
                             variant="success"
                             onClick={(chart_id, notice) => this.props.downvoteNotice(this.props.chart.id, this.props.notice)}
                         >
                             Disagree
                         </Button>
                         <Button
+                            size="sm"
                             variant="danger"
                             onClick={(chart_id, notice_id) => this.props.deleteNotice(this.props.chart.id, this.props.notice.id)}
                         >X

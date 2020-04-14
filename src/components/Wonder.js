@@ -23,6 +23,7 @@ class Wonder extends Component {
 
                     <Card.Footer>
                         <Button
+                            size="sm"
                             variant="primary"
                             onClick={(chart_id, wonder) => this.props.upvoteWonder(this.props.chart.id, this.props.wonder)}
                         >
@@ -30,6 +31,7 @@ class Wonder extends Component {
                         </Button>
 
                         <Button
+                            size="sm"
                             variant="success"
                             onClick={(chart_id, wonder) => this.props.downvoteWonder(this.props.chart.id, this.props.wonder)}
                         >
@@ -37,6 +39,7 @@ class Wonder extends Component {
                         </Button>
 
                         <Button
+                            size="sm"
                             variant="danger"
                             onClick={(chart_id, wonder_id) => this.props.deleteWonder(this.props.chart.id, this.props.wonder.id)}
                         >X

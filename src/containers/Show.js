@@ -28,7 +28,7 @@ class Show extends Component {
                         <Notices chart={chart} notices={notices} />
                     </Col>
 
-                    <Col md={6}>
+                    <Col md={6} >
                         <Card>
                             <Chart chart={chart} />
                         </Card>
