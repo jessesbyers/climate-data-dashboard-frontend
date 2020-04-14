@@ -21,13 +21,7 @@ export function fetchChartData(url) {
       dispatch({ type: 'START_FETCH_NOTICES_REQUEST' });
       fetch(`${url}/notices`)
         .then(response => response.json())
-        .then(notices => notices.map(notice => {return dispatch({ type: 'FETCH_NOTICES', notice })}))
-        // .then(notices => dispatch({ type: 'FETCH_NOTICES', notices }))
-
-          // console.log(notices)
-           
-          
-        
+        .then(notices => dispatch({ type: 'FETCH_NOTICES', notices }))
     };
   }
 
@@ -37,6 +31,6 @@ export function fetchChartData(url) {
       dispatch({ type: 'START_FETCH_WONDERS_REQUEST' });
       fetch(`${url}/wonders`)
         .then(response => response.json())
-        .then(wonders => wonders.map(wonder => {return dispatch({ type: 'FETCH_WONDERS', wonder })}))
+        .then(wonders => dispatch({ type: 'FETCH_WONDERS', wonders }))
     };
   }

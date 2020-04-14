@@ -4,7 +4,7 @@ export default function noticesReducer(state = [], action) {
             return state
 
         case 'FETCH_NOTICES':
-            return [...state, action.notice]
+            return [...state, ...action.notices]
 
 
 

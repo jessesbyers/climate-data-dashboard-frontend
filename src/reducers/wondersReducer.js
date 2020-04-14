@@ -4,7 +4,7 @@ export default function wondersReducer(state = [], action) {
             return state
 
         case 'FETCH_WONDERS':
-            return [...state, action.wonder]
+            return [...state, ...action.wonders]
 
 
 
