@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { fetchChartData, fetchNotices, fetchWonders } from '../actions/fetchChartData'
 import { deleteChart } from '../actions/deleteChart'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
+
 
 
 import { connect } from 'react-redux'
@@ -45,21 +49,24 @@ class DropdownInput extends Component {
     render() {    
         console.log(this.state)
         return (
-            <div>
-                <form onSubmit={event => this.handleDropdownSubmit(event)}>
-                    <select value={this.state.chart_url} onChange={event => this.handleDropdownChange(event)}>
+            <Form onSubmit={event => this.handleDropdownSubmit(event)}>
+                <Form.Group>
+                    <Form.Control as="select" size="lg" value={this.state.chart_url} onChange={event => this.handleDropdownChange(event)}>
                         <option value="" disabled>Choose a Chart to Load to the Data Dashboard</option>
                         {this.state.charts.map(chart => <option value={`http://localhost:3000/charts/${chart.id}`} key={chart.id}>{chart.name}</option>)}
-                    </select>
-                    <input type="submit" value="Load Chart" />
-                </form>
+                    </Form.Control>
+                </Form.Group>
 
-                <button variant="danger"
-                        className="btn btn-danger"
-                        onClick={this.handleDelete}>
-                        Clear Dashboard
-                </button> 
-            </div>
+                <Form.Group>
+                        <Button type="submit"> Load Chart</Button>
+
+                        <Button variant="danger"
+                            className="btn btn-danger"
+                            onClick={this.handleDelete}>
+                            Clear Dashboard
+                        </Button> 
+                </Form.Group>
+            </Form>
         );
     }
 };

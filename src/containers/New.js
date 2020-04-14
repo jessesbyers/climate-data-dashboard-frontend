@@ -4,8 +4,6 @@ import ChartInput from '../components/ChartInput'
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-
-
 import { connect } from 'react-redux'
 
 class New extends Component {
@@ -28,7 +26,7 @@ class New extends Component {
                     <NavLink 
                         style={{ marginRight: '10px' }} 
                         to="/">
-                        <Button>Set Up a Data Dashboard to Get Started</Button>
+                        <Button variant="dark" size="lg" block>Set Up a Data Dashboard to Get Started</Button>
                     </NavLink>
                 </div>
             )

@@ -38,7 +38,7 @@ class Show extends Component {
                     <NavLink 
                         style={{ marginRight: '10px' }} 
                         to="/">
-                        <Button>Set Up a Data Dashboard to Get Started</Button>
+                        <Button variant="dark" size="lg" block>Set Up a Data Dashboard to Get Started</Button>
                     </NavLink>
                 </div>
             )

@@ -11,14 +11,14 @@ const NavBar = () => {
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/">
-          <Button>Data Dashboard</Button>
+          <Button variant="dark">Data Dashboard</Button>
       </NavLink>
 
 
       <NavLink 
         style={{ marginRight: '10px' }} 
         to="/charts/new">
-          <Button>Add a New Data Source</Button>
+          <Button variant="dark">Add a New Data Source</Button>
       </NavLink>
       
     </div>
