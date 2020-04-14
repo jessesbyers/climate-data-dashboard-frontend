@@ -8,40 +8,33 @@ import Button from 'react-bootstrap/Button';
 
 class InteractButton extends Component {
     render() {
-    
-        return (
-            <div>
+        if (this.props.chart.id) {
+            return (
+
                 <Card.Footer>
+                        <NavLink 
+                            style={{ marginRight: '10px' }} 
+                            to={`/charts/${this.props.chart.id}/interact`}
+                            url={this.props.chart.screenshot_url} >
+                            <Button variant="primary" >
+                                Interact
+                            </Button>
+                        </NavLink>
 
-                    <NavLink 
-                        style={{ marginRight: '10px' }} 
-                        to={`/charts/${this.props.chart_id}/interact`}
-                        url={this.props.url} >
-                        <Button variant="primary" >
-                            Interact
-                        </Button>
-                    </NavLink>
-
-                    <NavLink 
-                        style={{ marginRight: '10px' }} 
-                        to={`/charts/${this.props.chart_id}/reflections`}
-                        url={this.props.url}>
-                        <Button variant="success" >
-                            Reflections
-                        </Button>
-                    </NavLink>
-
-                    <button variant="danger"
-                            key={this.props.chart_id}
-                            // type="button"
-                            className="btn btn-danger"
-                            onClick={id => this.props.handleDelete(this.props.chart_id)}
-                        >Remove
-                    </button>
-
+                        <NavLink 
+                            style={{ marginRight: '10px' }} 
+                            to={`/charts/${this.props.chart.id}/reflections`}
+                            url={this.props.chart.screenshot_url}>
+                            <Button variant="success" >
+                                Reflections
+                            </Button>
+                        </NavLink>
                 </Card.Footer>
-            </div>
-        );
+
+            );
+        } else {
+            return null
+        }
     }
 };
   

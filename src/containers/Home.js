@@ -16,6 +16,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
+
 class Home extends Component {
 
     handleDropdownChange = (event) => {
@@ -33,9 +34,15 @@ class Home extends Component {
         }
     }
 
-    handleDelete = (id) => {
-        this.props.deleteChart(id)
+    // handleDelete = (charts) => {
+    //     charts.map(chart => this.props.deleteChart(chart))
+    // }
+
+    handleDelete = () => {
+        console.log(this)
+        this.props.state.charts.map(chart => this.props.deleteChart(chart))
     }
+
 
     render() {
         console.log(this)
@@ -43,21 +50,27 @@ class Home extends Component {
             <div>  
                 <Row>
                     <Col>
-                        <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={this.handleDropdownSubmit}/>
+                        <DropdownInput handleDropdownChange={this.handleDropdownChange} handleDropdownSubmit={event => this.handleDropdownSubmit(event)}/>
+                        <button variant="danger"
+                            className="btn btn-danger"
+                            onClick={this.handleDelete}>
+                            {/* onClick={this.handleDelete(this.props.state.charts)}> */}
+                            Clear Dashboard
+                        </button>
                     </Col>
                 </Row>
 
                 <Row>
                     {this.props.state.charts.map((chart, index) => {
+
                         return (
                             <Col xs={3} >
+                                <Card className="text-center" key={chart.id}>
                 
-                                <Card className="text-center" key={index}>
-                                        <Chart url={chart.screenshot_url} name={chart.name}/>
+                                    <Chart url={chart.screenshot_url} name={chart.name}/>
 
-                                        <InteractButton url={chart.screenshot_url} chart_id={chart.id} handleDelete={this.handleDelete}/>
+                                    <InteractButton chart={chart} />
                                 </Card>
-        
                             </Col>
                         )
                     })}

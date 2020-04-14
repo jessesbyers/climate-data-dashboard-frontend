@@ -29,8 +29,7 @@ class DropdownInput extends Component {
                         {this.state.charts.map(chart => <option value={`http://localhost:3000/charts/${chart.id}`} key={chart.id}>{chart.name}</option>)}
                     </select>
                     <input type="submit" value="Load Chart" />
-                </form>
-                    
+                </form>                    
             </div>
         );
     }
