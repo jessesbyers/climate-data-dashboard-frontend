@@ -3,6 +3,9 @@ import { addDataSource} from '../actions/addDataSource'
 import { connect } from 'react-redux'
 import Chart from '../components/Chart'
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 class DataSourceInput extends Component {
     state = {
@@ -54,20 +57,31 @@ class DataSourceInput extends Component {
             return (
                 <div>
                     <h3>Add a New Data Source</h3>
-                    <form onSubmit={event => this.handleSubmit(event)}>
-                        <label>Name of Data Source: </label>
-                        <input type="text" name="name" value={this.state.name} onChange={event => this.handleChange(event)} placeholder="Name of Data Source"/><br/>
-                        
-                        <label>URL of Raw Data: </label>
-                        <input type="text" name="data_url" value={this.state.data_url} onChange={event => this.handleChange(event)} placeholder="URL of Raw Data"/><br/>
-                        
-                        <label>URL of Data Image: </label>
-                        <input type="text" name="screenshot_url" value={this.state.screenshot_url} onChange={event => this.handleChange(event)} placeholder=".png, .jpg, or .gif"/><br/>
-                        
-                        <input type="submit" value="Add Data Source" />
+                    <Form onSubmit={event => this.handleSubmit(event)}>
+                        <Form.Group>
+                            <Form.Label>Name of Data Source: </Form.Label>
+                            <Form.Control size="lg" type="text" name="name" value={this.state.name} onChange={event => this.handleChange(event)} placeholder="Name of Data Source"/>
+                        {/* <input type="text" name="name" value={this.state.name} onChange={event => this.handleChange(event)} placeholder="Name of Data Source"/><br/> */}
+                            {/* </Form.Control> */}
+                        </Form.Group>
 
+                        <Form.Group>
+                            <Form.Label>URL of Raw Data: </Form.Label>
+                            <Form.Control size="lg" type="text" name="data_url" value={this.state.data_url} onChange={event => this.handleChange(event)} placeholder="URL of Raw Data"/>
+                                {/* <input type="text" name="data_url" value={this.state.data_url} onChange={event => this.handleChange(event)} placeholder="URL of Raw Data"/><br/> */}
+                            {/* </Form.Control> */}
+                        </Form.Group>
 
-                    </form>
+                        <Form.Group>
+                            <Form.Label>URL of Data Image: </Form.Label>
+                            <Form.Control size="lg" type="text" name="screenshot_url" value={this.state.screenshot_url} onChange={event => this.handleChange(event)} placeholder=".png, .jpg, or .gif"/>
+                            {/* <input type="text" name="screenshot_url" value={this.state.screenshot_url} onChange={event => this.handleChange(event)} placeholder=".png, .jpg, or .gif"/><br/> */}
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Button type="submit">Add Data Source</Button>
+                        </Form.Group>
+                    </Form>
 
                 </div>
             )
