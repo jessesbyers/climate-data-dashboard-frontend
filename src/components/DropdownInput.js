@@ -46,9 +46,7 @@ class DropdownInput extends Component {
     }
 
     handleDelete = () => {
-        this.props.charts.map(chart => {
-            this.props.deleteChart(chart)
-        })
+        this.props.charts.map(chart => this.props.deleteChart(chart))
         // manipulating local state to render all chart options in dropdown menu
         this.setState({
             charts: [...this.state.charts.concat(this.props.charts)],
