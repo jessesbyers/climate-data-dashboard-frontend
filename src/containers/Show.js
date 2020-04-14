@@ -3,6 +3,8 @@ import Chart from '../components/Chart'
 import Notices from '../components/Notices'
 import Wonders from '../components/Wonders'
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
 
 import { connect } from 'react-redux'
 
@@ -22,9 +24,8 @@ class Show extends Component {
 
 
                     <NavLink 
-                        to={`/charts/${chart.id}/interact`}
-                    >
-                        Interact
+                        to={`/charts/${chart.id}/interact`}>
+                        <Button>Interact</Button>
                     </NavLink>           
 
                     <Notices chart={chart} notices={notices} />
@@ -36,10 +37,8 @@ class Show extends Component {
                 <div>
                     <NavLink 
                         style={{ marginRight: '10px' }} 
-                        to="/"
-                    >
-                        <h1>Set Up a Data Dashboard to Get Started</h1>
-                        <h3>Click Here</h3>
+                        to="/">
+                        <Button>Set Up a Data Dashboard to Get Started</Button>
                     </NavLink>
                 </div>
             )

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Chart from '../components/Chart'
 import ChartInput from '../components/ChartInput'
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
 
 
 import { connect } from 'react-redux'
@@ -25,10 +27,8 @@ class New extends Component {
                 <div>
                     <NavLink 
                         style={{ marginRight: '10px' }} 
-                        to="/"
-                    >
-                        <h1>Set Up a Data Dashboard to Get Started</h1>
-                        <h3>Click Here</h3>
+                        to="/">
+                        <Button>Set Up a Data Dashboard to Get Started</Button>
                     </NavLink>
                 </div>
             )

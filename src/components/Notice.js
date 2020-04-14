@@ -11,8 +11,6 @@ class Notice extends Component {
                     <h6>{this.props.notice.content}</h6>
                     <p>Votes: {this.props.notice.votes}</p>
 
-
-
                     <div className="float-center">
                         <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
                         <button

@@ -50,4 +50,4 @@ class Wonder extends Component {
     }
 };
   
-  export default Wonder;
+export default Wonder;

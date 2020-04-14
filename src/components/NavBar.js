@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
 
 const NavBar = () => {
   return (
@@ -8,17 +10,15 @@ const NavBar = () => {
 
       <NavLink 
         style={{ marginRight: '10px' }} 
-        to="/"
-      >
-        Return To Data Dashboard
+        to="/">
+          <Button>Data Dashboard</Button>
       </NavLink>
 
 
       <NavLink 
         style={{ marginRight: '10px' }} 
-        to="/charts/new"
-      >
-        Add a New Data Source
+        to="/charts/new">
+          <Button>Add a New Data Source</Button>
       </NavLink>
       
     </div>
