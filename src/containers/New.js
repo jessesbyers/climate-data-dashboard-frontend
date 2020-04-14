@@ -15,8 +15,8 @@ class New extends Component {
         if (chart) {
             return (
                 <div>
-                    <Chart chart={chart}/>
                     <ChartInput chart_id={chart.id}/>
+                    <Chart chart={chart}/>
                 </div>
             )
 

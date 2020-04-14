@@ -6,6 +6,8 @@ import { addWonder } from '../actions/addReflections';
 import Notice from '../components/Notice'
 import Wonder from '../components/Wonder'
 import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 class ChartInput extends Component {
@@ -61,11 +63,15 @@ class ChartInput extends Component {
                 <div>
                     <h3>Add your Observations and Reflections Below</h3>
 
-                    <form onSubmit={event => this.handleSubmit(event)}>
-                        <input type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
-                        <input type="text" name="wonder" placeholder="I wonder..." value={this.state.wonder.content} onChange={event => this.handleChange(event)}/>
-                        <button type="submit" className="btn">Add</button>
-                    </form>
+                    <Form onSubmit={event => this.handleSubmit(event)}>
+                        <Form.Group>
+                            <Form.Control size="lg" type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Control size="lg" type="text" name="wonder" placeholder="I wonder..." value={this.state.wonder.content} onChange={event => this.handleChange(event)}/>
+                        </Form.Group>
+                        <Button type="submit" >Add</Button>
+                    </Form>
                 </div>
             );
         } else if (this.state.visible === true && this.state.view === false) {
@@ -73,9 +79,8 @@ class ChartInput extends Component {
                 <div>
                     <Notice notice={this.state.notice}/>
                     <Wonder wonder={this.state.wonder}/>
-                    <input type="submit" value="Save Reflections to Database" onClick={this.handleSave}/>
-                    <input type="submit" value="Cancel" onClick={this.handleCancel}/>
-
+                    <Button type="submit" onClick={this.handleSave}>Save Reflections to Database</Button>
+                    <Button type="submit" variant="danger" onClick={this.handleCancel}>Cancel</Button>
                 </div>
             )
 
@@ -86,9 +91,8 @@ class ChartInput extends Component {
                     <NavLink 
                         style={{ marginRight: '10px' }} 
                         to={`/charts/${this.props.chart_id}/reflections`}
-                        chart={this.props.chart}
-                    >
-                        View All Reflections For This Chart
+                        chart={this.props.chart}>
+                        <Button>View All Reflections For This Chart</Button>  
                     </NavLink>
                 </div>
             )
