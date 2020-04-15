@@ -1,21 +1,24 @@
+// url passed in as argument will be used to fetch the correct chart when it is chosed in the dropdown menu
 export function fetchChartData(url) {
     return (dispatch) => {
       dispatch({ type: 'START_ADDING_CHARTDATA_REQUEST' });
+
       fetch(url)
         .then(response => response.json())
-        .then(charts => {
-          console.log(charts)
+        .then(data => {
+          console.log(data)
           let chart = {
-            id: parseInt(charts.id),
-            name: charts.name,
-            data_url: charts.data_url,
-            screenshot_url: charts.screenshot_url
+            id: parseInt(data.id),
+            name: data.name,
+            data_url: data.data_url,
+            screenshot_url: data.screenshot_url
           }
           dispatch({ type: 'ADD_CHARTDATA', chart })
       });
     };
   }
 
+  // url associates notices with the correct chart for fetch request
   export function fetchNotices(url) {
     return (dispatch) => {
       dispatch({ type: 'START_FETCH_NOTICES_REQUEST' });
@@ -25,7 +28,7 @@ export function fetchChartData(url) {
     };
   }
 
-
+  // url associates wonders with the correct chart for fetch request
   export function fetchWonders(url) {
     return (dispatch) => {
       dispatch({ type: 'START_FETCH_WONDERS_REQUEST' });

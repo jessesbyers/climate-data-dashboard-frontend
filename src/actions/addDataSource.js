@@ -1,3 +1,4 @@
+// recieves argument of an object with form data(name and urls)
 export const addDataSource = (dataSource) => {
 
     return dispatch => {
@@ -16,6 +17,7 @@ export const addDataSource = (dataSource) => {
         .then(function(response) {
             return response.json()
         })
+        // dispatches action.type and data object to charts reducer after recieving json response from front end
         .then(data => {
         console.log(data)
             dispatch({ type: 'ADD_DATA_SOURCE', data })})

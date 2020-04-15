@@ -1,3 +1,4 @@
+// both functions take in argument of object with form data, chart_id, and default votes
 export const addNotice = (notice) => {
 
     return dispatch => {
@@ -11,18 +12,20 @@ export const addNotice = (notice) => {
             },
             body: JSON.stringify(notice)
         };
-
+        // fetch call made to nested route url to associate notice with correct chart
         fetch(`http://localhost:3000/charts/${notice.chart_id}/notices`, configObj)
         .then(function(response) {
             return response.json()
         })
         .then(notice => {
+            // small revision of response object so it will play well in the reducer
             let mutatedNotice = {
                 id: parseInt(notice.id),
                 content: notice.content,
                 votes: notice.votes,
                 chart_id: notice.chart_id
             }
+            // dispatches action.type and object to noticeReducer to add new notice to state
             dispatch({ type: 'ADD_NOTICE', mutatedNotice })})
 
         .catch(function(error) {

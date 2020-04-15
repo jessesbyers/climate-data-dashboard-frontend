@@ -1,5 +1,6 @@
 export const upvoteNotice = (chart_id, notice) => {
 
+    // updating the notice object to incrment the number of votes
     let updatedNotice = {
         id: notice.id,
         content: notice.content,
@@ -19,6 +20,7 @@ export const upvoteNotice = (chart_id, notice) => {
             body: JSON.stringify({updatedNotice})
         };
 
+        // url is nested to update the correct id associated with the correct chart
         fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice.id}`, configObj)
         .then(response => response.json())
         .then(json => {

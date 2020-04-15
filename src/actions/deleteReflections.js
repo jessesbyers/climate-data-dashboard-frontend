@@ -1,9 +1,8 @@
-
 export const deleteNotice = (chart_id, notice_id) => {
 
     return dispatch => {
         dispatch({ type: 'START_DELETE_NOTICE_REQUEST' })
-
+        // converting chart_id into an integer
         let chartId = parseInt(chart_id)
 
         let configObj = {
@@ -13,7 +12,7 @@ export const deleteNotice = (chart_id, notice_id) => {
                 "Accept": "application/json"
             },
         };
-
+        // interpolating chartId and notice_id into fetch url to delete the correct notice and association
         fetch(`http://localhost:3000/charts/${chartId}/notices/${notice_id}`, configObj)
         .then(response => response.json())
         .then(json => {
