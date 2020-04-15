@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Overview
 
-## Available Scripts
+Climate Data Dashboard is a tool for science teachers and students to promote data analysis and productive discussion about data. As a middle school teacher, I was always trying to help my students to examine and compare data across multiple sources. My students needed more practice making observations about the data, as well as generating questions about the data to guide further inquiry. As a teacher, I struggled to find and present appropriate data sources. The Data Climate Dashboard addresses all of these challenges by providing a collection of data sources that can displayed together, and providing opportunities for students to interact with the data as well as interact with the ideas of their classmates, which drives discussion and further inquiry.
 
-In the project directory, you can run:
+This project was created with a Ruby on Rails backend API which manages all of the teacher and student data related to the charts and observations (notices) and questions (or wonders). The frontend was created as a React-Redux application using React-Router to manage RESTful routing and Thunk to manage asynchronous fetch actions.
 
-### `yarn start`
+![Imgur](https://i.imgur.com/Hqz3QMC.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Resources and Links
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Frontend Repository: https://github.com/jessesbyers/climate-data-dashboard-frontend
+Backend Repository: https://github.com/jessesbyers/climate-data-dashboard-backend
+Blog Post: https://jessesbyers.github.io/climate_data_dashboard_react-redux_project
+Video Walkthrough: https://drive.google.com/file/d/1IVsYRaElQui7Se3lXT8yAWIy3wBS149a/view
 
-### `yarn test`
+*This project was inspired by the NOAA climate.gov Global Climate Dashboard. All charts resources included in the seeds file were retrieved from this interactive site: https://www.climate.gov/maps-data#global-climate-dashboard 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Getting Started
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Fork and clone the frontend and backend repositories:
+    $ git clone https://github.com/jessesbyers/climate-data-dashboard-backend
+    $ git clone https://github.com/jessesbyers/climate-data-dashboard-frontend
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. Navigate to the root directory of each repo:
+    $ cd climate-data-dashboard-backend
+    $ cd climate-data-dashboard-frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Launch the rails server from the backend directory and navigate to localhost:3000 in the browser:
+    $ rails s
 
-### `yarn eject`
+4. Launch the react server from the frontend directory and navigate to the appropriate url in the browser (for example, localhost:3001).
+    $ npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Navigating the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Watch the Video Walkthrough: https://drive.google.com/file/d/1IVsYRaElQui7Se3lXT8yAWIy3wBS149a/view
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Click on the Data Dashboard button in the NavBar to access the home page, where you are able to load multiple charts onto the Data Dashboard, as well as clear charts from the dashboard.
 
-## Learn More
+Once a chart is loaded onto the dashboard, click Interact to add your refections about the chart: Notices are observations about the data, and Wonders are questions about the data. After confirming your entries, click to View all Reflections.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+From the Dashboard, click Reflections to see all reflections added about an individual chart. Click agree or disagree to interact with the reflections, or click on the X to delete the reflection.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Click on the Add a New Data Source button on the NavBar to enter new data sources. You will need to enter a name, URL for the data source, and a url for an image of the data representation.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
