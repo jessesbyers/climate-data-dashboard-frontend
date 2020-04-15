@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 const NavBar = () => {
   return (
     <div style={{ paddingBottom: '15px', marginBottom: '15px' }}>
-        <h1 class="header" >Climate Data Dashboard</h1>
+        <h1 className="header" >Climate Data Dashboard</h1>
 
       <NavLink 
         style={{ marginRight: '10px' }} 
