@@ -1,4 +1,7 @@
+// component provides built-in methods and attributes
 import React, { Component } from 'react';
+
+// imports custom css styling
 import '../App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from '../components/NavBar';
