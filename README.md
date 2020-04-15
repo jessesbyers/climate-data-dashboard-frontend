@@ -4,8 +4,6 @@ Climate Data Dashboard is a tool for science teachers and students to promote da
 
 This project was created with a Ruby on Rails backend API which manages all of the teacher and student data related to the charts and observations (notices) and questions (or wonders). The frontend was created as a React-Redux application using React-Router to manage RESTful routing and Thunk to manage asynchronous fetch actions.
 
-![Imgur](https://i.imgur.com/Hqz3QMC.png)
-
 ## Resources and Links
 
 Frontend Repository: https://github.com/jessesbyers/climate-data-dashboard-frontend
@@ -33,17 +31,21 @@ Video Walkthrough: https://drive.google.com/file/d/1IVsYRaElQui7Se3lXT8yAWIy3wBS
     $ npm start
 
 
-## Navigating the App
+## Navigating the Application
 
 Watch the Video Walkthrough: https://drive.google.com/file/d/1IVsYRaElQui7Se3lXT8yAWIy3wBS149a/view
 
 Click on the Data Dashboard button in the NavBar to access the home page, where you are able to load multiple charts onto the Data Dashboard, as well as clear charts from the dashboard.
+![Imgur](https://i.imgur.com/Hqz3QMC.png)
 
 Once a chart is loaded onto the dashboard, click Interact to add your refections about the chart: Notices are observations about the data, and Wonders are questions about the data. After confirming your entries, click to View all Reflections.
+![Imgur](https://i.imgur.com/gh9rzcC.png)
 
 From the Dashboard, click Reflections to see all reflections added about an individual chart. Click agree or disagree to interact with the reflections, or click on the X to delete the reflection.
+![Imgur](https://i.imgur.com/iquIOPZ.png)
 
 Click on the Add a New Data Source button on the NavBar to enter new data sources. You will need to enter a name, URL for the data source, and a url for an image of the data representation.
+![Imgur](https://i.imgur.com/Z7OO8rt.png)
 
 
 
