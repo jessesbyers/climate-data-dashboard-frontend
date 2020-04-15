@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 // bootstrap component for css styling
 import Button from 'react-bootstrap/Button';
 
-
+// renders Title and two NavLinks to navigate the app
 const NavBar = () => {
   return (
     <div style={{ paddingBottom: '15px', marginBottom: '15px' }}>
