@@ -37,4 +37,5 @@ class App extends Component {
   }
 }
 
+// allows App to be imported by other components, such as index.js
 export default App;
