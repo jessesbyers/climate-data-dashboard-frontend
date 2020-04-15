@@ -9,9 +9,10 @@ import { connect } from 'react-redux'
 
 class Wonders extends Component {
     render() {
+
+        // sorting all of the notices for this chart by votes before rendering the notice component
         let sortedWonders = this.props.wonders.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
 
-    
         return (
             <div >
                 {sortedWonders.map(wonder=> <Wonder wonder={wonder} chart={this.props.chart} deleteWonder={this.props.deleteWonder} upvoteWonder={this.props.upvoteWonder} downvoteWonder={this.props.downvoteWonder}/>)}        

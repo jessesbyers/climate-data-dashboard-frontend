@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Notice from '../components/Notice'
 
 import { deleteNotice } from '../actions/deleteReflections'
@@ -8,8 +9,7 @@ import { connect } from 'react-redux'
 
 class Notices extends Component {
     render() {
-        console.log(this.props)
-
+        // sorting all of the notices for this chart by votes before rendering the notice component
         let sortedNotices = this.props.notices.sort((a, b) => (a.votes < b.votes) ? 1 : -1)
     
         return (

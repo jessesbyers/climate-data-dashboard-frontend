@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
@@ -6,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 class Wonder extends Component {
     render() {
-
+        // conditional logic to render content with buttons if it is already saved to the database
         if (this.props.chart) {
     
             return (
@@ -47,6 +48,7 @@ class Wonder extends Component {
                     </Card.Footer>
                 </Card>            
             );
+        // only renders content without interaction buttons if it is not yet saved to the database (from ChartInput)
         } else {
             return (
                 <Card className="text-center">
