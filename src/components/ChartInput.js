@@ -44,7 +44,7 @@ class ChartInput extends Component {
     // the visible key is reset to true to show a confirmation message before calling the fetch action.
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({ visible: true})
+            this.setState({ visible: true})
     }
 
     // The addNotice and addWonder actions are called, which triggers the POST fetch request for the notice and the wonder
@@ -80,7 +80,8 @@ class ChartInput extends Component {
                 <div>
                     <h3>Add your Observations and Reflections Below</h3>
 
-                    <Form onSubmit={event => this.handleSubmit(event)}>
+                    <Form onSubmit={event => this.handleSubmit(event)}
+                    >
                         <Form.Group>
                             <Form.Control size="lg" type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
                         </Form.Group>
