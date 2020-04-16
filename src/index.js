@@ -4,9 +4,9 @@ import React from 'react';
 // provides DOM-specific functions such as .render(), which allow JSX components to be rendered on the DOM
 import ReactDOM from 'react-dom';
 
-// enables the redux store to be passed down to any component wrapped in the connect function
+// enables the redux store and dispatch actions to be passed down to any component wrapped in the connect function
 import { Provider } from 'react-redux';
-// imports the createStore function, which we pass our rducer to to create our redux store for the application.
+// imports the createStore function, which includes the getState and dispatch functions.
 // the middleware allows us to use Thunk to manage the asynchronous fetch calls
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';

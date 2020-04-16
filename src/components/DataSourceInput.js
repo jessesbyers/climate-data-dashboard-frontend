@@ -50,7 +50,6 @@ class DataSourceInput extends Component {
             screenshot_url: "", 
             visible: false
         })
-
     }
 
     // state.visible is changed to true to show confirmation prompt
