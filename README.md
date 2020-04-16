@@ -18,21 +18,27 @@ Video Walkthrough: https://drive.google.com/file/d/1IVsYRaElQui7Se3lXT8yAWIy3wBS
 
 1. Fork and clone the frontend and backend repositories:
 
+
     $ git clone https://github.com/jessesbyers/climate-data-dashboard-backend
+
 
     $ git clone https://github.com/jessesbyers/climate-data-dashboard-frontend
 
 2. Navigate to the root directory of each repo:
 
+
     $ cd climate-data-dashboard-backend
+
 
     $ cd climate-data-dashboard-frontend
 
 3. Launch the rails server from the backend directory and navigate to localhost:3000 in the browser:
 
+
     $ rails s
 
 4. Launch the react server from the frontend directory and navigate to the appropriate url in the browser (for example, localhost:3001).
+
 
     $ npm start
 
