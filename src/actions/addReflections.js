@@ -19,14 +19,16 @@ export const addNotice = (notice) => {
         })
         .then(notice => {
             // small revision of response object so it will play well in the reducer
-            let mutatedNotice = {
-                id: parseInt(notice.id),
-                content: notice.content,
-                votes: notice.votes,
-                chart_id: notice.chart_id
-            }
-            // dispatches action.type and object to noticeReducer to add new notice to state
-            dispatch({ type: 'ADD_NOTICE', mutatedNotice })})
+
+                let mutatedNotice = {
+                    id: parseInt(notice.id),
+                    content: notice.content,
+                    votes: notice.votes,
+                    chart_id: notice.chart_id
+                }
+                // dispatches action.type and object to noticeReducer to add new notice to state
+                dispatch({ type: 'ADD_NOTICE', mutatedNotice })
+    })
 
         .catch(function(error) {
             alert("ERROR! Please Try Again");

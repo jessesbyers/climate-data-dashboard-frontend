@@ -73,26 +73,28 @@ class ChartInput extends Component {
 
     render() {
         // conditional logic looks to values in local state to determine which content to return based on user interaction
+        const validated = this.state.notice.content.length > 20 && this.state.wonder.content.length > 20;
 
         if (this.state.visible === false && this.state.view === false) {
             // renders form and chart
-            return (
-                <div>
-                    <h3>Add your Observations and Reflections Below</h3>
+                    return (
+                        <div>
+                            <h3>Add your Observations and Reflections Below</h3>
 
-                    <Form onSubmit={event => this.handleSubmit(event)}
-                    >
-                        <Form.Group>
-                            <Form.Control size="lg" type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
-                        </Form.Group>
-                        
-                        <Form.Group>
-                            <Form.Control size="lg" type="text" name="wonder" placeholder="I wonder..." value={this.state.wonder.content} onChange={event => this.handleChange(event)}/>
-                        </Form.Group>
-                        <Button type="submit" >Add</Button>
-                    </Form>
-                </div>
-            );
+                            <Form onSubmit={event => this.handleSubmit(event)}>
+                                <Form.Group>
+                                    <Form.Control size="lg" type="text" name="notice" placeholder="I notice..." value={this.state.notice.content} onChange={event => this.handleChange(event)}/>
+                                </Form.Group>
+                                
+                                <Form.Group>
+                                    <Form.Control size="lg" type="text" name="wonder" placeholder="I wonder..." value={this.state.wonder.content} onChange={event => this.handleChange(event)}/>
+                                </Form.Group>
+                                
+                                <Button disabled={!validated} type="submit" >Add</Button>
+                            </Form>
+                        </div>
+                    );
+               
         } else if (this.state.visible === true && this.state.view === false) {
             // renders draft reflections and asks for confirmation before saving
             return (

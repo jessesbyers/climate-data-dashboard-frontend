@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 // imports the createStore function, which includes the getState and dispatch functions.
 // the middleware allows us to use Thunk to manage the asynchronous fetch calls
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 // imports bootstrap-react css
@@ -22,7 +22,19 @@ import App from './containers/App';
 import rootReducer from './reducers/rootReducer'
 
 // creating the redux store, which will have access to all individual reducers and the thunk middleware to manage fetches
-const store = createStore(rootReducer, applyMiddleware(thunk))
+// const store = createStore(rootReducer, applyMiddleware(thunk))
+
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(thunk)
+  ));
+
+
+
+
+
 
 // renders the App Container on the DOM at the div#root, which is wrapped in the redux store.
 // All child containers/components will have access to the store by using the connect function

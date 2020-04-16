@@ -69,6 +69,7 @@ class DataSourceInput extends Component {
 
     render() {
         // conditional logic looks to values in local state to determine which content to return
+        const validated = this.state.name.length > 10 && this.state.data_url.length > 10 && this.state.screenshot_url.length > 10;
 
         if (this.state.visible === false) {
             // renders form to input new data source
@@ -89,7 +90,7 @@ class DataSourceInput extends Component {
                         </Form.Group>
 
                         <Form.Group>
-                            <Button type="submit">Add Data Source</Button>
+                            <Button disabled={!validated} type="submit">Add Data Source</Button>
                         </Form.Group>
                     </Form>
                 </Card>
