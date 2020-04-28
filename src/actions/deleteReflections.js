@@ -13,7 +13,7 @@ export const deleteNotice = (chart_id, notice_id) => {
             },
         };
         // interpolating chartId and notice_id into fetch url to delete the correct notice and association
-        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chartId}/notices/${notice_id}`, configObj)
+        fetch(`https://climate-dashboard-api.herokuapp.com/charts/${chartId}/notices/${notice_id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'DELETE_NOTICE', notice_id })
@@ -44,7 +44,7 @@ export const deleteWonder = (chart_id, wonder_id) => {
             },
         };
 
-        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chartId}/wonders/${wonder_id}`, configObj)
+        fetch(`https://climate-dashboard-api.herokuapp.com/charts/${chartId}/wonders/${wonder_id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'DELETE_WONDER', wonder_id })

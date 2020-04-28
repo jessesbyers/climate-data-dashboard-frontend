@@ -13,7 +13,7 @@ export const addNotice = (notice) => {
             body: JSON.stringify(notice)
         };
         // fetch call made to nested route url to associate notice with correct chart
-        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${notice.chart_id}/notices`, configObj)
+        fetch(`https://climate-dashboard-api.herokuapp.com/charts/${notice.chart_id}/notices`, configObj)
         .then(function(response) {
             return response.json()
         })
@@ -51,7 +51,7 @@ export function addWonder(wonder) {
             body: JSON.stringify(wonder)
         };
 
-        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${wonder.chart_id}/wonders`, configObj)
+        fetch(`https://climate-dashboard-api.herokuapp.com/charts/${wonder.chart_id}/wonders`, configObj)
         .then(function(response) {
             return response.json()
         })
