@@ -21,7 +21,7 @@ export const upvoteNotice = (chart_id, notice) => {
         };
 
         // url is nested to update the correct id associated with the correct chart
-        fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice.id}`, configObj)
+        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chart_id}/notices/${notice.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'UPVOTE_NOTICE', updatedNotice })
@@ -56,7 +56,7 @@ export const upvoteWonder = (chart_id, wonder) => {
             body: JSON.stringify({updatedWonder})
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder.id}`, configObj)
+        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chart_id}/wonders/${wonder.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'UPVOTE_WONDER', updatedWonder })
@@ -94,7 +94,7 @@ export const downvoteNotice = (chart_id, notice) => {
             body: JSON.stringify({updatedNotice})
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/notices/${notice.id}`, configObj)
+        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chart_id}/notices/${notice.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'UPVOTE_NOTICE', updatedNotice })
@@ -128,7 +128,7 @@ export const downvoteWonder = (chart_id, wonder) => {
             body: JSON.stringify({updatedWonder})
         };
 
-        fetch(`http://localhost:3000/charts/${chart_id}/wonders/${wonder.id}`, configObj)
+        fetch(`https://climate-data-dashboard.herokuapp.com/charts/${chart_id}/wonders/${wonder.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             dispatch({ type: 'DOWNVOTE_WONDER', updatedWonder })

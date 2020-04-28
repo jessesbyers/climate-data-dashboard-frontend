@@ -13,7 +13,7 @@ export const addDataSource = (dataSource) => {
             body: JSON.stringify(dataSource)
         };
 
-        fetch(`http://localhost:3000/charts`, configObj)
+        fetch(`https://climate-data-dashboard.herokuapp.com/charts`, configObj)
         .then(function(response) {
             return response.json()
         })
